@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=3 uid="uid://dss8fr254yb6y"]
+
+[ext_resource type="Texture2D" uid="uid://ckhyisk7rj2mv" path="res://icon.svg" id="1_0k8gp"]
+[ext_resource type="PackedScene" uid="uid://4pafqfcfr1ve" path="res://src/components/Walk.tscn" id="2_kcxag"]
+[ext_resource type="PackedScene" uid="uid://ckoi21yqn3xel" path="res://src/components/PlayerController.tscn" id="3_kibks"]
+[ext_resource type="PackedScene" uid="uid://djnkwrq2hducs" path="res://src/components/Gravity.tscn" id="4_bt8lr"]
+[ext_resource type="PackedScene" uid="uid://btn7hfcoji1tf" path="res://src/components/Move.tscn" id="5_ubvj8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_11atl"]
+size = Vector2(112, 112)
+
+[node name="Character" type="CharacterBody2D"]
+
+[node name="PlayerController" parent="." node_paths=PackedStringArray("character") instance=ExtResource("3_kibks")]
+character = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_11atl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_0k8gp")
+
+[node name="Walk" parent="." node_paths=PackedStringArray("character") instance=ExtResource("2_kcxag")]
+character = NodePath("..")
+
+[node name="Move" parent="." node_paths=PackedStringArray("movable_object") instance=ExtResource("5_ubvj8")]
+movable_object = NodePath("..")
+
+[node name="Gravity" parent="." node_paths=PackedStringArray("character") instance=ExtResource("4_bt8lr")]
+character = NodePath("..")
