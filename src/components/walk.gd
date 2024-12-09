@@ -1,4 +1,4 @@
-# Walk.gd
+# Walk
 
 """Компонент, который служит для реализации движения
 объекта по горизонтали. Не будет работать, если к компоненту, 
@@ -6,15 +6,15 @@
 
 extends Node
 class_name Walk
-@export var character: CharacterBody2D
+@onready var character: CharacterBody2D = get_parent()
  
 
-@export var walk_speed: float = 400.0  # Скорость движения
+@export var walk_speed: float = 800  # Скорость движения
 var velocity = Vector2.ZERO   # Вектор скорости
 
 func update_velocity(input_vector: Vector2) -> void:
 	velocity.x = 0  # Сбрасываем скорость
-
+	
 	# Применяем скорость в зависимости от направления
 	if input_vector.x > 0:
 		velocity.x = walk_speed

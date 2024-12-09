@@ -4,10 +4,10 @@
 движение объекта по горизонтали и гравитацию."""
 
 extends Node
-@export var movable_object: CollisionObject2D
+@onready var character: CharacterBody2D = get_parent()
 
 
 func _process(_delta: float) -> void:
-	if movable_object:
-		movable_object.move_and_slide()
+	if character:
+		character.move_and_slide()
 	

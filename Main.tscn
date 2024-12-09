@@ -5,6 +5,7 @@
 [node name="Main" type="Node2D"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(611, 214)
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
 position = Vector2(-100, 40)
@@ -16,3 +17,4 @@ position = Vector2(-100, 36)
 polygon = PackedVector2Array(4, 9, 312, -1, 408, 147, 100, 201, -256, 113)
 
 [node name="Character" parent="." instance=ExtResource("1_2lai1")]
+position = Vector2(628, 183)

@@ -11,9 +11,10 @@
 size = Vector2(112, 112)
 
 [node name="Character" type="CharacterBody2D"]
-metadata/_edit_horizontal_guides_ = [-326.0, -1843.0]
+metadata/_edit_horizontal_guides_ = [-326.0]
 
-[node name="PlayerController" parent="." instance=ExtResource("3_kibks")]
+[node name="PlayerController" parent="." node_paths=PackedStringArray("character") instance=ExtResource("3_kibks")]
+character = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_11atl")
@@ -21,14 +22,16 @@ shape = SubResource("RectangleShape2D_11atl")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_0k8gp")
 
-[node name="Walk" parent="." instance=ExtResource("2_kcxag")]
+[node name="Walk" parent="." node_paths=PackedStringArray("character") instance=ExtResource("2_kcxag")]
+character = NodePath("..")
 
-[node name="Move" parent="." instance=ExtResource("5_ubvj8")]
+[node name="Move" parent="." node_paths=PackedStringArray("movable_object") instance=ExtResource("5_ubvj8")]
+movable_object = NodePath("..")
 
-[node name="Gravity" parent="." instance=ExtResource("4_bt8lr")]
+[node name="Gravity" parent="." node_paths=PackedStringArray("character") instance=ExtResource("4_bt8lr")]
+gravity_strength = 980.0
+character = NodePath("..")
 
-[node name="Jump" parent="." instance=ExtResource("6_7x4rl")]
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position_smoothing_enabled = true
-position_smoothing_speed = 7.0
+[node name="Jump" parent="." node_paths=PackedStringArray("character") instance=ExtResource("6_7x4rl")]
+jump_strength = 1200.0
+character = NodePath("..")
