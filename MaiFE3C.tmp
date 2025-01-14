@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://dp6nriwc656a7"]
+
+[ext_resource type="PackedScene" uid="uid://dss8fr254yb6y" path="res://src/characters/space_marine/SpaceMarine.tscn" id="1_2lai1"]
+[ext_resource type="PackedScene" uid="uid://ckoi21yqn3xel" path="res://src/components/PlayerController.tscn" id="2_6lr30"]
+[ext_resource type="PackedScene" uid="uid://da623u62xar8m" path="res://src/levels/DesertSurvival.tscn" id="3_vuhre"]
+[ext_resource type="Script" path="res://camera.gd" id="4_kcp4v"]
+[ext_resource type="PackedScene" uid="uid://dl1w4lpjaatk3" path="res://src/UI/InventoryUI.tscn" id="5_o0313"]
+[ext_resource type="PackedScene" uid="uid://df1clyqlx0kqo" path="res://src/characters/buzzer/Buzzer.tscn" id="6_3b62w"]
+
+[sub_resource type="Environment" id="Environment_sttaq"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 2.0
+glow_bloom = 0.08
+
+[node name="Main" type="Node2D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_sttaq")
+
+[node name="Level" parent="." instance=ExtResource("3_vuhre")]
+
+[node name="SpaceMarine" parent="Level" instance=ExtResource("1_2lai1")]
+position = Vector2(-5520, -16)
+
+[node name="PlayerController" parent="Level/SpaceMarine" instance=ExtResource("2_6lr30")]
+
+[node name="Camera" type="Camera2D" parent="Level/SpaceMarine"]
+position = Vector2(0, -56)
+zoom = Vector2(3, 3)
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
+rotation_smoothing_enabled = true
+rotation_smoothing_speed = 8.0
+script = ExtResource("4_kcp4v")
+
+[node name="Buzzer" parent="Level" instance=ExtResource("6_3b62w")]
+position = Vector2(-5136, -83)
+
+[node name="Buzzer2" parent="Level" instance=ExtResource("6_3b62w")]
+position = Vector2(-5024, -123)
+
+[node name="Buzzer3" parent="Level" instance=ExtResource("6_3b62w")]
+position = Vector2(-5192, -139)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="InventoryUI" parent="UI" instance=ExtResource("5_o0313")]

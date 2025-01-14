@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://dl1w4lpjaatk3"]
+
+[ext_resource type="Theme" uid="uid://bndqhe20ccnil" path="res://src/UI/UITheme.tres" id="1_6kn7p"]
+[ext_resource type="Script" path="res://src/UI/inventory_ui.gd" id="2_dfqxk"]
+
+[node name="InventoryUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -5.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 8
+theme = ExtResource("1_6kn7p")
+script = ExtResource("2_dfqxk")
+
+[node name="SlotContainer" type="HFlowContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = -179.0
+offset_right = 945.0
+offset_bottom = -75.0
+grow_vertical = 0
+theme_override_constants/h_separation = 88

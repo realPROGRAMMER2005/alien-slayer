@@ -1,0 +1,66 @@
+[gd_scene load_steps=13 format=3 uid="uid://df1clyqlx0kqo"]
+
+[ext_resource type="Script" path="res://src/characters/character.gd" id="1_msosr"]
+[ext_resource type="Texture2D" uid="uid://15wgs3idiap7" path="res://src/assets/characters/aliens/enemies_sprite_sheet_0.png" id="1_yvxtf"]
+[ext_resource type="PackedScene" uid="uid://1yma0xj4tnaj" path="res://src/components/Fly.tscn" id="2_7gsu1"]
+[ext_resource type="Script" path="res://src/characters/buzzer/buzzer_sprite.gd" id="3_lgvw8"]
+[ext_resource type="PackedScene" uid="uid://jm6880p88jm0" path="res://src/components/AI/AIFly.tscn" id="5_eruhb"]
+[ext_resource type="PackedScene" uid="uid://puducjpj5lo5" path="res://src/components/Health.tscn" id="6_3txi8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pmd6t"]
+atlas = ExtResource("1_yvxtf")
+region = Rect2(0, 391, 20, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqoxu"]
+atlas = ExtResource("1_yvxtf")
+region = Rect2(20, 391, 20, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0anr2"]
+atlas = ExtResource("1_yvxtf")
+region = Rect2(40, 391, 20, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58snv"]
+atlas = ExtResource("1_yvxtf")
+region = Rect2(60, 391, 20, 22)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n572t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pmd6t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jqoxu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0anr2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58snv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g6ijs"]
+radius = 6.74348
+
+[node name="Buzzer" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_msosr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_n572t")
+frame_progress = 0.359803
+script = ExtResource("3_lgvw8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.222725, 0.668175)
+shape = SubResource("CircleShape2D_g6ijs")
+
+[node name="Fly" parent="." instance=ExtResource("2_7gsu1")]
+
+[node name="AiFly" parent="." instance=ExtResource("5_eruhb")]
+
+[node name="Health" parent="." instance=ExtResource("6_3txi8")]

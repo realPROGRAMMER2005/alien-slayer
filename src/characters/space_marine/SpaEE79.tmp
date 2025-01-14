@@ -1,0 +1,90 @@
+[gd_scene load_steps=16 format=3 uid="uid://dss8fr254yb6y"]
+
+[ext_resource type="Script" path="res://src/characters/SpaceMarine/space_marine.gd" id="1_qqok1"]
+[ext_resource type="PackedScene" uid="uid://4pafqfcfr1ve" path="res://src/components/Walk.tscn" id="2_kcxag"]
+[ext_resource type="PackedScene" uid="uid://ckoi21yqn3xel" path="res://src/components/PlayerController.tscn" id="3_kibks"]
+[ext_resource type="PackedScene" uid="uid://djnkwrq2hducs" path="res://src/components/Gravity.tscn" id="4_bt8lr"]
+[ext_resource type="PackedScene" uid="uid://btn7hfcoji1tf" path="res://src/components/Move.tscn" id="5_ubvj8"]
+[ext_resource type="PackedScene" uid="uid://btadqv3usv7eu" path="res://src/components/Jump.tscn" id="6_7x4rl"]
+[ext_resource type="Texture2D" uid="uid://b2d3ncrlkkdw7" path="res://src/characters/SpaceMarine/assets/space_marine_spritesheet.png" id="6_vkpkp"]
+[ext_resource type="Script" path="res://src/characters/SpaceMarine/space_marine_animator.gd" id="7_kg3et"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4fyis"]
+atlas = ExtResource("6_vkpkp")
+region = Rect2(0, 0, 46, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lctmp"]
+atlas = ExtResource("6_vkpkp")
+region = Rect2(92, 0, 46, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_snwxk"]
+atlas = ExtResource("6_vkpkp")
+region = Rect2(138, 0, 46, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_klphx"]
+atlas = ExtResource("6_vkpkp")
+region = Rect2(184, 0, 46, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6bd3g"]
+atlas = ExtResource("6_vkpkp")
+region = Rect2(230, 0, 46, 46)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4olej"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4fyis")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lctmp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_snwxk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_klphx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6bd3g")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_11atl"]
+size = Vector2(9, 31)
+
+[node name="SpaceMarine" type="CharacterBody2D"]
+script = ExtResource("1_qqok1")
+metadata/_edit_horizontal_guides_ = [-326.0, -1843.0]
+
+[node name="PlayerController" parent="." instance=ExtResource("3_kibks")]
+
+[node name="Walk" parent="." instance=ExtResource("2_kcxag")]
+
+[node name="Move" parent="." instance=ExtResource("5_ubvj8")]
+
+[node name="Gravity" parent="." instance=ExtResource("4_bt8lr")]
+
+[node name="Jump" parent="." instance=ExtResource("6_7x4rl")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -40)
+position_smoothing_enabled = true
+position_smoothing_speed = 7.0
+
+[node name="SpaceMarineAnimator" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -23)
+sprite_frames = SubResource("SpriteFrames_4olej")
+animation = &"idle"
+script = ExtResource("7_kg3et")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_11atl")
