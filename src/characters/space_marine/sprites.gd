@@ -34,12 +34,12 @@ func attach_item_sprite_to_character_sprite(item):
 		
 	
 	
-func attach_item_sprite_to_item(item):
+func attach_item_sprite_to_item():
 	if current_item_sprite.get_child_count() != 0:
 		current_item_sprite.get_child(0).queue_free()
 
 func switch_current_item_sprites(new_current_item, previous_item):
-	attach_item_sprite_to_item(previous_item)
+	attach_item_sprite_to_item()
 	attach_item_sprite_to_character_sprite(new_current_item)
 	current_item = new_current_item
 

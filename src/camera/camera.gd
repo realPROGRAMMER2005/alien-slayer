@@ -3,7 +3,7 @@ extends Camera2D
 @export var max_distance: Vector2 = Vector2(80, 70)
 var new_position: Vector2
 
-@onready var target = get_parent()
+@export var target
 
 
 

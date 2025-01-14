@@ -7,7 +7,7 @@ class_name FlyFollow
 @export var follow_radius_area: float = 140 # Радиус области вокруг цели
 @export var stop_distance: float = 25 # Расстояние для остановки около случайной точки
 
-@onready var fly: Fly = character.get_node_or_null("Fly")
+@export var fly: Fly
 var random_point: Vector2 = Vector2.ZERO
 var last_target_position: Vector2 = Vector2.ZERO
 

@@ -58,4 +58,4 @@ position = Vector2(-216, -152)
 position = Vector2(-216, -152)
 
 [node name="Buzzer11" parent="." instance=ExtResource("5_wh3fr")]
-position = Vector2(-216, -152)
+position = Vector2(-280, -48)

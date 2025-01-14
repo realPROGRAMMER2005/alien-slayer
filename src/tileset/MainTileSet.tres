@@ -1,6 +1,6 @@
 [gd_resource type="TileSet" load_steps=11 format=3 uid="uid://bw1n2xyddjie5"]
 
-[ext_resource type="Texture2D" uid="uid://tmma6n5d1uw7" path="res://src/assets/tilesheet.png" id="1_ov5g7"]
+[ext_resource type="Texture2D" uid="uid://tmma6n5d1uw7" path="res://src/assets/tilesheets/tilesheet.png" id="1_psc7o"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_h6ube"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -27,7 +27,7 @@ polygon = PackedVector2Array(-8, 5, -8, 8, 8, 8, 8, 6.9375, -2, 6.875, -2.0625, 
 polygon = PackedVector2Array(-8, 6.8059, -4.94975, 6.98268, -4.94975, 5.74524, -3.0052, 6.01041, -3.0052, 5.03814, -0.176777, 4.86136, -0.0883884, 5.92202, 3.71231, 5.92202, 3.8007, 6.8059, 8, 6.8059, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r6arb"]
-texture = ExtResource("1_ov5g7")
+texture = ExtResource("1_psc7o")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0

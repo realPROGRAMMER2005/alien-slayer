@@ -6,7 +6,7 @@
 extends Node
 class_name  Health
 
-@onready var parent = get_parent()
+@export var character: Character
 
 @export var health: float = 100
 

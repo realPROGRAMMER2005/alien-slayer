@@ -78,6 +78,7 @@ func switch_current_item_next():
 	emit_signal("current_item_switched", items[current_item_index], items[previous_item_index])
 
 func switch_current_item(item_index):
+	current_item_index = item_index
 	if current_item_index < 0:
 		current_item_index = 0
 	elif current_item_index >= capacity:

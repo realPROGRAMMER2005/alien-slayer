@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://1v8jb46oco1b"]
+
+[ext_resource type="Script" path="res://src/components/AI/fly_melee_dash.gd" id="1_nn08v"]
+
+[node name="FlyMeleeDash" type="Node2D"]
+script = ExtResource("1_nn08v")
