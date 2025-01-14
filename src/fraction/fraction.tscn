@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dck5jaymudmmq"]
+
+[ext_resource type="Script" path="res://src/characters/buzzer/fraction.gd" id="1_xov5m"]
+
+[node name="Fraction" type="Node"]
+script = ExtResource("1_xov5m")

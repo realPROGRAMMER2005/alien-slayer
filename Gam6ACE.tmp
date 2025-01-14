@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://cei2ddsge7orr"]
+
+[ext_resource type="PackedScene" uid="uid://dss8fr254yb6y" path="res://src/characters/space_marine/SpaceMarine.tscn" id="2_p3w40"]
+[ext_resource type="PackedScene" uid="uid://0rvxjrs6o5ue" path="res://src/camera/Camera.tscn" id="2_y442f"]
+[ext_resource type="Script" path="res://src/components/player_controller.gd" id="4_aw4yd"]
+[ext_resource type="PackedScene" uid="uid://dg8t3r4twx44s" path="res://src/levels/Level.tscn" id="4_lcr27"]
+[ext_resource type="PackedScene" uid="uid://df1clyqlx0kqo" path="res://src/characters/buzzer/Buzzer.tscn" id="5_ejwx0"]
+
+[sub_resource type="Environment" id="Environment_aoycx"]
+background_mode = 3
+glow_enabled = true
+
+[node name="Game" type="Node2D"]
+metadata/_edit_lock_ = true
+
+[node name="SpaceMarine" parent="." instance=ExtResource("2_p3w40")]
+position = Vector2(32, -32)
+
+[node name="Camera" parent="SpaceMarine" instance=ExtResource("2_y442f")]
+
+[node name="PlayerController" type="Node" parent="SpaceMarine"]
+script = ExtResource("4_aw4yd")
+
+[node name="Level" parent="." instance=ExtResource("4_lcr27")]
+metadata/_edit_lock_ = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_aoycx")
+
+[node name="Buzzer" parent="." instance=ExtResource("5_ejwx0")]
+position = Vector2(-216, -152)
+
+[node name="Buzzer2" parent="." instance=ExtResource("5_ejwx0")]
+position = Vector2(-64, -152)
+
+[node name="Buzzer3" parent="." instance=ExtResource("5_ejwx0")]
+position = Vector2(-192, -80)
+
+[node name="Buzzer4" parent="." instance=ExtResource("5_ejwx0")]
+position = Vector2(104, -160)
+
+[node name="Buzzer5" parent="." instance=ExtResource("5_ejwx0")]
+position = Vector2(256, -160)
+
+[node name="Buzzer6" parent="." instance=ExtResource("5_ejwx0")]
+position = Vector2(128, -88)

@@ -4,14 +4,16 @@
 Некоторые механики требуют наличия других компонентов.
 """
 
-extends Node
+extends CharacterComponent
 class_name PlayerController
 
-@onready var character: CharacterBody2D = get_parent()
 
-@onready var walk = character.get_node("Walk")
-@onready var jump = character.get_node("Jump")
+@onready var walk: CharacterComponent = character.get_node("Walk")
+@onready var jump: CharacterComponent = character.get_node("Jump")
+@onready var inventory: Inventory = character.get_node("Inventory")
+@onready var interact_area: Area2D = character.get_node("InteractArea")
 
+signal current_item_used
 
 func _process(delta: float) -> void:
 	var input_vector = Vector2.ZERO
@@ -26,18 +28,28 @@ func _process(delta: float) -> void:
 		walk.update_velocity(input_vector)
 		walk.move(delta)
 
-
-	# Управление прыжком
-	if jump:
-		if Input.is_action_just_pressed("jump_up") or jump.perform_jump_on_landing:
-			jump.jump_start()
-		if Input.is_action_pressed("jump_up"):
-			jump.jump_hold(delta)
+	# Обработка прыжка
+	if Input.is_action_just_pressed("jump_up") and jump:
+		jump.perform_jump = true
+	
+	if Input.is_action_just_pressed("switch_current_item_up") and inventory:
+		inventory.switch_current_item_previous()
+	
+	if Input.is_action_just_pressed("switch_current_item_down") and inventory:
+		inventory.switch_current_item_next()
+		
+	if Input.is_action_pressed("use_current_item"):
+		emit_signal("current_item_used")
+	
+	
+		
+	interact_area.global_position = interact_area.get_global_mouse_position()
+	if Input.is_action_just_pressed("interact"):
+		if interact_area.has_overlapping_areas():
+			var interactable: Interactable = interact_area.get_overlapping_areas()[0].get_parent().get_node_or_null("Interactable")
+			interactable.interact()
+	
+				
 			
-		jump.perform_jump_on_landing = false
-		if Input.is_action_just_released("jump_up") and not character.is_on_floor():
-			jump.jump_end()
 			
-		if Input.is_action_just_pressed("jump_up") and not jump.is_jumping:
-			jump.is_jump_buffered = true
-			
+	

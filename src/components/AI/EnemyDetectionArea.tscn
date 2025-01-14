@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://o2vh2eydqnlp"]
+
+[ext_resource type="Script" path="res://src/components/AI/enemy_detection_area.gd" id="1_qf0qu"]
+
+[node name="EnemyDetectionArea" type="Area2D"]
+script = ExtResource("1_qf0qu")
