@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://c18jnrcbplahh"]
+
+[ext_resource type="Script" path="res://src/components/interactable/pickupable.gd" id="1_ivc0s"]
+[ext_resource type="Texture2D" uid="uid://w0i0m8i8mdri" path="res://src/assets/weapons/4_1.png" id="2_r36ib"]
+[ext_resource type="PackedScene" uid="uid://dmjdsu11ovtui" path="res://src/items/weapons/range/pistols/service pistol/item/ServicePistolItem.tscn" id="2_wy48y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c41ai"]
+size = Vector2(11.0904, 7.15313)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e1o2n"]
+radius = 8.62447
+
+[node name="ServicePistolPickupable" type="RigidBody2D"]
+collision_layer = 0
+
+[node name="Interactable" type="Node2D" parent="." node_paths=PackedStringArray("interactable", "interact_area")]
+script = ExtResource("1_ivc0s")
+item_scene = ExtResource("2_wy48y")
+interactable = NodePath("..")
+interact_area = NodePath("../InteractArea")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.0338583, -0.00787449)
+texture = ExtResource("2_r36ib")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_c41ai")
+
+[node name="InteractArea" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
+shape = SubResource("CircleShape2D_e1o2n")

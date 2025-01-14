@@ -3,7 +3,7 @@
 extends CharacterComponent
 class_name FlyFollow
 
-@export var target: Node2D
+var target: Node2D
 @export var follow_radius_area: float = 140 # Радиус области вокруг цели
 @export var stop_distance: float = 25 # Расстояние для остановки около случайной точки
 

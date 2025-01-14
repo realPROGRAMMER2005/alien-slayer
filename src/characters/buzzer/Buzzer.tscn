@@ -64,17 +64,23 @@ script = ExtResource("3_lgvw8")
 position = Vector2(0.222725, 0.668175)
 shape = SubResource("CircleShape2D_g6ijs")
 
-[node name="Fly" parent="." instance=ExtResource("2_7gsu1")]
+[node name="Fly" parent="." node_paths=PackedStringArray("character") instance=ExtResource("2_7gsu1")]
+character = NodePath("..")
 
-[node name="Health" parent="." instance=ExtResource("6_3txi8")]
+[node name="Health" parent="." node_paths=PackedStringArray("character") instance=ExtResource("6_3txi8")]
+character = NodePath("..")
 
-[node name="FlyFollow" parent="." instance=ExtResource("6_u8yrs")]
+[node name="FlyFollow" parent="." node_paths=PackedStringArray("fly", "character") instance=ExtResource("6_u8yrs")]
+fly = NodePath("../Fly")
+character = NodePath("..")
 
 [node name="Fraction" parent="." instance=ExtResource("7_4r0cy")]
 friendly_fractions = Array[String](["Aliens"])
 enemy_fractions = Array[String](["Marines"])
 
-[node name="EnemyDetectionArea" parent="." node_paths=PackedStringArray("follow") instance=ExtResource("8_vrs7i")]
+[node name="EnemyDetectionArea" parent="." node_paths=PackedStringArray("character", "fraction", "follow") instance=ExtResource("8_vrs7i")]
+character = NodePath("..")
+fraction = NodePath("../Fraction")
 follow = NodePath("../FlyFollow")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetectionArea"]

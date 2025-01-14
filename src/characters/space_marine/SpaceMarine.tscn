@@ -1101,14 +1101,17 @@ collision_layer = 2
 script = ExtResource("1_8y1tx")
 metadata/_edit_horizontal_guides_ = [-326.0, -1843.0]
 
-[node name="Walk" parent="." instance=ExtResource("2_kcxag")]
+[node name="Walk" parent="." node_paths=PackedStringArray("character") instance=ExtResource("2_kcxag")]
 walk_speed = 190.0
+character = NodePath("..")
 
-[node name="Gravity" parent="." instance=ExtResource("4_bt8lr")]
+[node name="Gravity" parent="." node_paths=PackedStringArray("character") instance=ExtResource("4_bt8lr")]
+character = NodePath("..")
 
-[node name="Jump" parent="." instance=ExtResource("6_7x4rl")]
+[node name="Jump" parent="." node_paths=PackedStringArray("character") instance=ExtResource("6_7x4rl")]
 jump_strength = 300.0
 max_jump_count = 1000000
+character = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -16)
@@ -1178,24 +1181,27 @@ libraries = {
 "": SubResource("AnimationLibrary_7qip2")
 }
 
-[node name="Hitbox" type="Area2D" parent="."]
+[node name="Hitbox" type="Area2D" parent="." node_paths=PackedStringArray("character")]
 visible = false
 script = ExtResource("7_xwo3w")
+character = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(-0.375, -16.75)
 shape = SubResource("CapsuleShape2D_js58i")
 
-[node name="Health" parent="." instance=ExtResource("7_6heda")]
+[node name="Health" parent="." node_paths=PackedStringArray("character") instance=ExtResource("7_6heda")]
+character = NodePath("..")
 
 [node name="InteractArea" type="Area2D" parent="."]
-collision_layer = 16
+collision_layer = 0
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
 shape = SubResource("CircleShape2D_yrhko")
 
-[node name="Inventory" parent="." instance=ExtResource("15_5hbh3")]
+[node name="Inventory" parent="." node_paths=PackedStringArray("character") instance=ExtResource("15_5hbh3")]
+character = NodePath("..")
 
 [node name="Fraction" type="Node" parent="."]
 script = ExtResource("16_fbo8a")

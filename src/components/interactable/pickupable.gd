@@ -5,9 +5,6 @@
 extends Interactable
 class_name Pickupable
 
-
-
-
 @export var item_scene: PackedScene
 
 func get_interactor_inventory():
