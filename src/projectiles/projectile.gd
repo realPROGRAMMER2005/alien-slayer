@@ -1,16 +1,15 @@
-extends Area2D
+extends Node2D
 class_name Projectile
 
-var target: Node2D = null
+@export var hurtbox: Hurtbox
 
-@export var speed: float = 750
+@export var speed: float = 430
 
 func _process(delta):
+	if hurtbox:
+		if hurtbox.has_hurt:
+			on_hit()
 	position += transform.x * speed * delta
-	
-	if has_overlapping_bodies():
-		target = get_overlapping_bodies()[0]
-		on_hit()
 	
 
 func on_hit():

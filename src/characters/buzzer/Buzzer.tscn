@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://df1clyqlx0kqo"]
+[gd_scene load_steps=18 format=3 uid="uid://df1clyqlx0kqo"]
 
 [ext_resource type="Script" path="res://src/characters/character.gd" id="1_msosr"]
 [ext_resource type="Texture2D" uid="uid://15wgs3idiap7" path="res://src/assets/characters/aliens/enemies_sprite_sheet_0.png" id="1_yvxtf"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c2om5cjqkwobj" path="res://src/components/AI/FlyFollow.tscn" id="6_u8yrs"]
 [ext_resource type="PackedScene" uid="uid://dck5jaymudmmq" path="res://src/fraction/fraction.tscn" id="7_4r0cy"]
 [ext_resource type="PackedScene" uid="uid://o2vh2eydqnlp" path="res://src/components/AI/EnemyDetectionArea.tscn" id="8_vrs7i"]
+[ext_resource type="Script" path="res://src/characters/space_marine/hitbox.gd" id="9_3rjy5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pmd6t"]
 atlas = ExtResource("1_yvxtf")
@@ -51,6 +52,8 @@ radius = 6.74348
 [sub_resource type="CircleShape2D" id="CircleShape2D_gjowo"]
 radius = 354.605
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ijecf"]
+
 [node name="Buzzer" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_msosr")
@@ -61,21 +64,38 @@ frame_progress = 0.27051
 script = ExtResource("3_lgvw8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0.222725, 0.668175)
 shape = SubResource("CircleShape2D_g6ijs")
 
-[node name="Fly" parent="." instance=ExtResource("2_7gsu1")]
+[node name="Fly" parent="." node_paths=PackedStringArray("character") instance=ExtResource("2_7gsu1")]
+character = NodePath("..")
 
-[node name="Health" parent="." instance=ExtResource("6_3txi8")]
+[node name="Health" parent="." node_paths=PackedStringArray("character") instance=ExtResource("6_3txi8")]
+max_health = 25.0
+character = NodePath("..")
 
-[node name="FlyFollow" parent="." instance=ExtResource("6_u8yrs")]
+[node name="FlyFollow" parent="." node_paths=PackedStringArray("fly", "character") instance=ExtResource("6_u8yrs")]
+fly = NodePath("../Fly")
+character = NodePath("..")
 
 [node name="Fraction" parent="." instance=ExtResource("7_4r0cy")]
 friendly_fractions = Array[String](["Aliens"])
 enemy_fractions = Array[String](["Marines"])
 
-[node name="EnemyDetectionArea" parent="." node_paths=PackedStringArray("follow") instance=ExtResource("8_vrs7i")]
+[node name="EnemyDetectionArea" parent="." node_paths=PackedStringArray("character", "fraction", "follow") instance=ExtResource("8_vrs7i")]
+character = NodePath("..")
+fraction = NodePath("../Fraction")
 follow = NodePath("../FlyFollow")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetectionArea"]
 shape = SubResource("CircleShape2D_gjowo")
+
+[node name="Hitbox" type="Area2D" parent="." node_paths=PackedStringArray("health")]
+collision_layer = 32
+collision_mask = 64
+script = ExtResource("9_3rjy5")
+health = NodePath("../Health")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_ijecf")

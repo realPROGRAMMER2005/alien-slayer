@@ -3,18 +3,19 @@
 """Компонент, который добавляет персонажу здоровье и 
 возможность получать урон"""
 
-extends Node
+extends CharacterComponent
 class_name  Health
 
-@onready var parent = get_parent()
+@export var max_health: float = 100
+var current_health: float
 
-@export var health: float = 100
-
+func _ready() -> void:
+	current_health = max_health
 
 func get_damage(damage: int):
-	health -= damage
-	if health <= 0:
+	current_health -= damage
+	if current_health <= 0:
 		die()
 
 func die():
-	pass
+	character.queue_free()

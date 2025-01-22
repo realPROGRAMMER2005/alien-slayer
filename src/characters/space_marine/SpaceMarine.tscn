@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://dss8fr254yb6y"]
+[gd_scene load_steps=55 format=3 uid="uid://dss8fr254yb6y"]
 
 [ext_resource type="Script" path="res://src/characters/character.gd" id="1_8y1tx"]
 [ext_resource type="PackedScene" uid="uid://4pafqfcfr1ve" path="res://src/components/movement components/Walk.tscn" id="2_kcxag"]
@@ -8,12 +8,14 @@
 [ext_resource type="Texture2D" uid="uid://chbcdo86y5mwf" path="res://src/assets/characters/space marine/space_marine_body.png" id="6_tfc8i"]
 [ext_resource type="Texture2D" uid="uid://cky1tw6h3bq1x" path="res://src/assets/characters/space marine/space_marine_head_0.png" id="7_1tv17"]
 [ext_resource type="PackedScene" uid="uid://puducjpj5lo5" path="res://src/components/Health.tscn" id="7_6heda"]
+[ext_resource type="Texture2D" uid="uid://c1etbeyrcfy8i" path="res://src/assets/characters/space marine/space_marine_parts_spritesheet_2.png" id="7_vjdjh"]
 [ext_resource type="Script" path="res://src/characters/space_marine/hitbox.gd" id="7_xwo3w"]
 [ext_resource type="Texture2D" uid="uid://c7fsfg84jgj5a" path="res://src/assets/characters/space marine/space_marine_back_lower_arm.png" id="8_dtcjt"]
 [ext_resource type="Texture2D" uid="uid://dmh2tgtix4ffp" path="res://src/assets/characters/space marine/space_marine_back_upper_arm.png" id="8_g3srx"]
 [ext_resource type="Texture2D" uid="uid://ehsbcdo77ri7" path="res://src/assets/characters/space marine/space_marine_parts_spritesheet.png" id="8_lxinp"]
 [ext_resource type="Texture2D" uid="uid://cp3alv4q22qc2" path="res://src/assets/characters/space marine/space_marine_front_upper_arm.png" id="10_fn5ne"]
 [ext_resource type="Texture2D" uid="uid://ts6xtpd8fry2" path="res://src/assets/characters/space marine/space_marine_front_lower_arm_no_item.png" id="11_a1vp0"]
+[ext_resource type="Script" path="res://src/components/interactable/interact_area.gd" id="15_0eioq"]
 [ext_resource type="PackedScene" uid="uid://tjcvu743fmd4" path="res://src/components/Inventory.tscn" id="15_5hbh3"]
 [ext_resource type="Script" path="res://src/characters/buzzer/fraction.gd" id="16_fbo8a"]
 
@@ -35,8 +37,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_x0ky7"]
-atlas = ExtResource("8_lxinp")
+[sub_resource type="AtlasTexture" id="AtlasTexture_7yc8g"]
+atlas = ExtResource("7_vjdjh")
 region = Rect2(2, 2, 46, 46)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2i4au"]
@@ -91,7 +93,7 @@ region = Rect2(652, 2, 46, 46)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_x0ky7")
+"texture": SubResource("AtlasTexture_7yc8g")
 }],
 "loop": true,
 "name": &"idle",
@@ -1101,14 +1103,17 @@ collision_layer = 2
 script = ExtResource("1_8y1tx")
 metadata/_edit_horizontal_guides_ = [-326.0, -1843.0]
 
-[node name="Walk" parent="." instance=ExtResource("2_kcxag")]
+[node name="Walk" parent="." node_paths=PackedStringArray("character") instance=ExtResource("2_kcxag")]
 walk_speed = 190.0
+character = NodePath("..")
 
-[node name="Gravity" parent="." instance=ExtResource("4_bt8lr")]
+[node name="Gravity" parent="." node_paths=PackedStringArray("character") instance=ExtResource("4_bt8lr")]
+character = NodePath("..")
 
-[node name="Jump" parent="." instance=ExtResource("6_7x4rl")]
+[node name="Jump" parent="." node_paths=PackedStringArray("character") instance=ExtResource("6_7x4rl")]
 jump_strength = 300.0
 max_jump_count = 1000000
+character = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -16)
@@ -1180,22 +1185,27 @@ libraries = {
 
 [node name="Hitbox" type="Area2D" parent="."]
 visible = false
+collision_layer = 32
+collision_mask = 64
 script = ExtResource("7_xwo3w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(-0.375, -16.75)
 shape = SubResource("CapsuleShape2D_js58i")
 
-[node name="Health" parent="." instance=ExtResource("7_6heda")]
+[node name="Health" parent="." node_paths=PackedStringArray("character") instance=ExtResource("7_6heda")]
+character = NodePath("..")
 
 [node name="InteractArea" type="Area2D" parent="."]
 collision_layer = 16
 collision_mask = 16
+script = ExtResource("15_0eioq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
 shape = SubResource("CircleShape2D_yrhko")
 
-[node name="Inventory" parent="." instance=ExtResource("15_5hbh3")]
+[node name="Inventory" parent="." node_paths=PackedStringArray("character") instance=ExtResource("15_5hbh3")]
+character = NodePath("..")
 
 [node name="Fraction" type="Node" parent="."]
 script = ExtResource("16_fbo8a")

@@ -1,13 +1,21 @@
-extends CharacterComponent
+extends Area2D
 class_name Hitbox
 
-@onready var health = character.get_node("Health")
+@export var health: Health
+var damaged_by: Array[Hurtbox] = []
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	set_collision_layer_value(6, true)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if health:
+		if is_instance_valid(health):
+			for hurtbox: Hurtbox in get_overlapping_areas():
+				if hurtbox not in damaged_by:
+						hurtbox.make_damage(health)
+						damaged_by.append(hurtbox)
+						print('asdasd')
+
+
+
+		

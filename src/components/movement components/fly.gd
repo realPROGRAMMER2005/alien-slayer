@@ -11,12 +11,7 @@ class_name Fly
 var velocity: Vector2 = Vector2.ZERO
 var target_velocity: Vector2 = Vector2.ZERO
 
-func _ready() -> void:
-	# Очищаем компоненты, не связанные с полётом
-	if character.get_node_or_null("Gravity"):
-		character.get_node("Gravity").queue_free()
-	if character.get_node_or_null("Walk"):
-		character.get_node("Walk").queue_free()
+
 
 func update_velocity(input_vector: Vector2) -> void:
 	# Устанавливаем целевую скорость

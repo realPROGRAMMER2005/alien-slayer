@@ -1,6 +1,6 @@
 extends Area2D
-@onready var character = get_parent()
-@onready var fraction: Fraction = character.get_node_or_null("Fraction")
+@export var character: Character
+@export var fraction: Fraction
 @export var follow: Node2D
 
 var enemy_fractions: Array[String]
@@ -14,7 +14,7 @@ func start_search_for_enemy():
 	has_search_for_enemy = false
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if has_search_for_enemy:
 		var body_enemy_fractions: Array[String]
 		if has_overlapping_bodies():

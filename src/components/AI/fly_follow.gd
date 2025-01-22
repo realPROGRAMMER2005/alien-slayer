@@ -3,11 +3,11 @@
 extends CharacterComponent
 class_name FlyFollow
 
-@export var target: Node2D
+var target: Node2D
 @export var follow_radius_area: float = 140 # Радиус области вокруг цели
 @export var stop_distance: float = 25 # Расстояние для остановки около случайной точки
 
-@onready var fly: Fly = character.get_node_or_null("Fly")
+@export var fly: Fly
 var random_point: Vector2 = Vector2.ZERO
 var last_target_position: Vector2 = Vector2.ZERO
 
@@ -57,7 +57,7 @@ func _update_random_point() -> void:
 	var target_position = get_target_position()
 	random_point = target_position + Vector2(
 		randf_range(-follow_radius_area, follow_radius_area),
-		randf_range(-follow_radius_area, follow_radius_area / 2)
+		randf_range(-follow_radius_area, 0)
 	)
 
 func target_exists() -> bool:
