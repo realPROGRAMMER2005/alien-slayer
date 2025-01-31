@@ -11,12 +11,13 @@ config_version=5
 [application]
 
 config/name="Alien Slayer 3000"
-run/main_scene="res://src/MAIN/Game.tscn"
+run/main_scene="res://Game.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 
 [autoload]
 
-Utilities="*res://src/utilitites/utilities.gd"
+Utilities="*res://globals/utilities.gd"
+FractionList="*res://globals/fraction_list.gd"
 
 [display]
 

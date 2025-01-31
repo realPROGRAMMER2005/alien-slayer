@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://j5o3me0kp256"]
+
+[ext_resource type="Script" path="res://bullets/bullet.gd" id="1_fwu24"]
+
+[node name="Bullet" type="Area2D"]
+collision_layer = 8
+collision_mask = 33
+script = ExtResource("1_fwu24")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

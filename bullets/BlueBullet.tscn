@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cj2efu4crxdtw"]
+
+[ext_resource type="Script" path="res://bullets/damage_bullet.gd" id="1_haixt"]
+[ext_resource type="Texture2D" uid="uid://b86y8m23bil4m" path="res://assets/projectiles/blue_projectile.png" id="2_xtmr6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lgtt8"]
+size = Vector2(16, 8)
+
+[node name="BlueBullet" type="Area2D"]
+collision_layer = 0
+collision_mask = 32
+script = ExtResource("1_haixt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_xtmr6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_lgtt8")

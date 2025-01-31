@@ -1,0 +1,35 @@
+[gd_scene load_steps=8 format=3 uid="uid://bp0n88uiw3vtv"]
+
+[ext_resource type="Texture2D" uid="uid://coldgelk2xk7t" path="res://assets/weapons/plasma_rifle.png" id="1_p4fx4"]
+[ext_resource type="PackedScene" uid="uid://cj2efu4crxdtw" path="res://bullets/BlueBullet.tscn" id="3_dkbmj"]
+[ext_resource type="PackedScene" uid="uid://dw26bvnhxjnmf" path="res://components/items/weapons/weapon/Weapon.tscn" id="4_edcae"]
+[ext_resource type="Script" path="res://components/interactables/pick_upable.gd" id="4_la1gd"]
+[ext_resource type="PackedScene" uid="uid://bp47dlbwt4ydd" path="res://components/interactables/InteractableArea.tscn" id="5_3gch0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e7ao5"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m2f2v"]
+radius = 9.0
+
+[node name="PlasmaRifle" type="RigidBody2D"]
+collision_layer = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_p4fx4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_e7ao5")
+
+[node name="PickUpable" type="Node" parent="." node_paths=PackedStringArray("item_component")]
+script = ExtResource("4_la1gd")
+item_component = NodePath("../Weapon")
+
+[node name="InteractableArea" parent="." node_paths=PackedStringArray("interactable_component") instance=ExtResource("5_3gch0")]
+interactable_component = NodePath("../PickUpable")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableArea"]
+shape = SubResource("CircleShape2D_m2f2v")
+
+[node name="Weapon" parent="." instance=ExtResource("4_edcae")]
+bullet_scene = ExtResource("3_dkbmj")

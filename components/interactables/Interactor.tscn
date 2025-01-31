@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://csed4mx8xu6ol"]
+
+[ext_resource type="Script" path="res://components/interactables/interactor.gd" id="1_ma35m"]
+
+[node name="Interactor" type="Node"]
+script = ExtResource("1_ma35m")

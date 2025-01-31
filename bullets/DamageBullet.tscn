@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://be4njtvajjvrp"]
+
+[ext_resource type="PackedScene" uid="uid://j5o3me0kp256" path="res://bullets/Bullet.tscn" id="1_c8mtn"]
+[ext_resource type="Script" path="res://bullets/damage_bullet.gd" id="2_5lgfq"]
+
+[node name="DamageBullet" instance=ExtResource("1_c8mtn")]
+script = ExtResource("2_5lgfq")
+damage_value = 20.0

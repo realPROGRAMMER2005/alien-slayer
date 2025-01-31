@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=3 uid="uid://dss8fr254yb6y"]
+
+[ext_resource type="Script" path="res://characters/character.gd" id="1_8y1tx"]
+[ext_resource type="PackedScene" uid="uid://h8b5qluj7x5m" path="res://components/Move.tscn" id="2_nj16v"]
+[ext_resource type="PackedScene" uid="uid://d22mur1dx252f" path="res://components/PlayerController.tscn" id="3_juy5b"]
+[ext_resource type="PackedScene" uid="uid://ckmygylgi5b30" path="res://components/Gravity.tscn" id="4_u0ivd"]
+[ext_resource type="PackedScene" uid="uid://d0fig7d5drson" path="res://components/Jump.tscn" id="5_8sa8l"]
+[ext_resource type="Texture2D" uid="uid://cky1tw6h3bq1x" path="res://assets/characters/space_marine/space_marine_head_0.png" id="6_08bwe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_11atl"]
+size = Vector2(9, 31)
+
+[node name="SpaceMarine" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_8y1tx")
+metadata/_edit_horizontal_guides_ = [-326.0, -1843.0]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_11atl")
+
+[node name="Move" parent="." node_paths=PackedStringArray("character") instance=ExtResource("2_nj16v")]
+character = NodePath("..")
+
+[node name="PlayerController" parent="." node_paths=PackedStringArray("move_component", "jump_component") instance=ExtResource("3_juy5b")]
+move_component = NodePath("../Move")
+jump_component = NodePath("../Jump")
+
+[node name="Gravity" parent="." node_paths=PackedStringArray("character", "jump_component") instance=ExtResource("4_u0ivd")]
+character = NodePath("..")
+jump_component = NodePath("../Jump")
+
+[node name="Jump" parent="." node_paths=PackedStringArray("character") instance=ExtResource("5_8sa8l")]
+character = NodePath("..")
+
+[node name="SpaceMarineHead0" type="Sprite2D" parent="."]
+position = Vector2(1, -14)
+scale = Vector2(3.3, 3.3)
+texture = ExtResource("6_08bwe")
