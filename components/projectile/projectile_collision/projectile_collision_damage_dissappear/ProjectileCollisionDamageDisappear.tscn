@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwnqe050rc7yx"]
+
+[ext_resource type="PackedScene" uid="uid://3qxrrv8rv8f8" path="res://components/projectile/projectile_collision/projectile_collision/ProjectileCollision.tscn" id="1_rkgsh"]
+[ext_resource type="Script" path="res://components/projectile/projectile_collision/projectile_collision_damage_dissappear/projectile_collision_damage_disappear.gd" id="2_ghye2"]
+
+[node name="ProjectileCollisionDamageDisappear" instance=ExtResource("1_rkgsh")]
+script = ExtResource("2_ghye2")

@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=3 uid="uid://bgr23i2kk8jny"]
+
+[ext_resource type="PackedScene" uid="uid://bjhfxjpdrboy4" path="res://components/projectile/lifetime/lifetime_disappear/LifetimeDisappear.tscn" id="1_jbls6"]
+[ext_resource type="PackedScene" uid="uid://cwnqe050rc7yx" path="res://components/projectile/projectile_collision/projectile_collision_damage_dissappear/ProjectileCollisionDamageDisappear.tscn" id="2_es7ko"]
+[ext_resource type="PackedScene" uid="uid://djg6l055b0425" path="res://components/projectile/projectile_movement/projectile_straight_movement/ProjectileStraightMovement.tscn" id="3_jy3yk"]
+[ext_resource type="Texture2D" uid="uid://b86y8m23bil4m" path="res://assets/projectiles/blue_projectile.png" id="4_kobyc"]
+[ext_resource type="Script" path="res://components/combat/damage.gd" id="5_v2rr3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4knri"]
+size = Vector2(14, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l8pwq"]
+size = Vector2(14, 8)
+
+[node name="PlasmaRifleProjectile" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="LifetimeDisappear" parent="." instance=ExtResource("1_jbls6")]
+
+[node name="ProjectileCollisionDamageDisappear" parent="." node_paths=PackedStringArray("damage_component") instance=ExtResource("2_es7ko")]
+monitoring = true
+damage_component = NodePath("../Damage")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ProjectileCollisionDamageDisappear"]
+shape = SubResource("RectangleShape2D_4knri")
+
+[node name="ProjectileStraightMovement" parent="." instance=ExtResource("3_jy3yk")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("4_kobyc")
+
+[node name="Damage" type="Node" parent="."]
+script = ExtResource("5_v2rr3")
+damage_value = 24.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_l8pwq")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://djg6l055b0425"]
+
+[ext_resource type="Script" path="res://components/projectile/projectile_movement/projectile_straight_movement/projectile_straight_movement.gd" id="1_lo01d"]
+
+[node name="ProjectileStraightMovement" type="Node"]
+script = ExtResource("1_lo01d")

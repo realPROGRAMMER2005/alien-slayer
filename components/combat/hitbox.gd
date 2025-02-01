@@ -9,5 +9,6 @@ func _ready() -> void:
 		push_error("Health component not found!")
 
 
+
 func _process(delta: float) -> void:
 	pass
