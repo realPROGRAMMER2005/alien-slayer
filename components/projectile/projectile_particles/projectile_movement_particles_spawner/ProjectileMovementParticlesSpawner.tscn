@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ba86h6fd0m62s"]
+
+[ext_resource type="Script" path="res://components/projectile/projectile_particles/projectile_movement_particles_spawner/projectile_movement_particles_spawner.gd" id="1_snsnt"]
+
+[node name="ProjectileMovementParticlesSpawner" type="Node"]
+script = ExtResource("1_snsnt")
+spawning_interval = 0.3

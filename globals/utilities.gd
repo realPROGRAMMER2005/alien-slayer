@@ -1,5 +1,4 @@
 extends Node
-class_name Utitlities
 
 func get_level():
 	return	get_tree().root.get_node("Game").get_node("Level")
@@ -42,3 +41,11 @@ func find_owner_by_class(child_node: Node, node_class_name) -> Node:
 
 	# Если ничего не найдено, возвращаем null
 	return null
+
+
+func get_component(component_owner_node: Node, component_class_name) -> Node:
+	var founded_nodes_with_class_name = find_nodes_by_class_name(component_owner_node, component_class_name)
+	if len(founded_nodes_with_class_name) > 0:
+		return founded_nodes_with_class_name[0]
+	return null
+		

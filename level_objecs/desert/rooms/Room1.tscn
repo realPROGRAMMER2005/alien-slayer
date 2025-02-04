@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=4 uid="uid://qr5v5nq42djh"]
+[gd_scene load_steps=5 format=4 uid="uid://qr5v5nq42djh"]
 
 [ext_resource type="Script" path="res://level_objecs/desert/rooms/room.gd" id="1_dew70"]
+[ext_resource type="TileSet" uid="uid://448nmucxftil" path="res://resources/tilesets/ExclusionZoneTileset.tres" id="2_b5evt"]
 [ext_resource type="TileSet" uid="uid://bw1n2xyddjie5" path="res://resources/tilesets/MainTileSet.tres" id="2_nkjhd"]
 [ext_resource type="Script" path="res://level_objecs/desert/rooms/connection_point.gd" id="3_sf2cl"]
 
@@ -13,8 +14,8 @@ type = "Platform"
 [node name="Foreground" type="TileMapLayer" parent="TileMapLayers"]
 z_index = 200
 z_as_relative = false
-tile_map_data = PackedByteArray("AAAFAP3/AAAAACQAAAAGAP3/AAABACQAAAAHAP3/AAACACQAAAAIAP3/AAADACQAAAALAPr/AAAAACUAAAAMAPr/AAABACUAAAANAPr/AAACACUAAAAOAPr/AAADACUAAAAAAPj/AAAAACMAAAABAPj/AAABACMAAAACAPj/AAACACMAAAADAPj/AAADACMAAAA=")
-tile_set = ExtResource("2_nkjhd")
+tile_map_data = PackedByteArray("AAAAAPz/AAAIAAQAAAAAAP3/AAAIAAUAAAABAPz/AAAJAAQAAAABAP3/AAAJAAUAAAACAPz/AAAKAAQAAAACAP3/AAAKAAUAAAADAPz/AAALAAQAAAADAP3/AAALAAUAAAAEAPz/AAAMAAQAAAAEAP3/AAAMAAUAAAAFAPz/AAANAAQAAAAFAP3/AAANAAUAAAAGAPz/AAAOAAQAAAAGAP3/AAAOAAUAAAAHAPz/AAAPAAQAAAAHAP3/AAAPAAUAAAALAPn/AAAQAAYAAAALAPr/AAAQAAcAAAAMAPn/AAARAAYAAAAMAPr/AAARAAcAAAADAPj/AAAQAAYAAAADAPn/AAAQAAcAAAAEAPj/AAARAAYAAAAEAPn/AAARAAcAAAAKAP3/AAAQAAYAAAAKAP7/AAAQAAcAAAALAP3/AAARAAYAAAALAP7/AAARAAcAAAA=")
+tile_set = ExtResource("2_b5evt")
 
 [node name="Ground" type="TileMapLayer" parent="TileMapLayers"]
 z_index = 100

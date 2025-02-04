@@ -9,7 +9,7 @@ var room_scenes: Array[PackedScene] = [
 	load("res://level_objecs/desert/rooms/Room1.tscn")
 ]
 @export var show_room_rects = false
-var value: float = 30
+var value: float = 150
 var current_value: float = 0
 func _ready() -> void:
 	generate()

@@ -13,7 +13,7 @@ glow_enabled = true
 metadata/_edit_lock_ = true
 
 [node name="SpaceMarine" parent="." instance=ExtResource("1_ppsd2")]
-position = Vector2(108, -42)
+position = Vector2(15, -6)
 
 [node name="Camera" parent="SpaceMarine" instance=ExtResource("2_mb862")]
 

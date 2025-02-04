@@ -17,5 +17,3 @@ func jump():
 	if current_jump_count < max_jump_count:
 		character.velocity.y = -jump_force
 		current_jump_count += 1
-		print(current_jump_count)
-	

@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 	
 func get_in_inventory(inventory: Inventory):
 	super(inventory)
-	muzzle_component = Utilities.find_nodes_by_class_name(inventory.owner, Muzzle)[0]
+	muzzle_component = Utilities.get_component(inventory.owner, Muzzle)
 
 func get_dropped(drop_position: Vector2):
 	super(drop_position)
