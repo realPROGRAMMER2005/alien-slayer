@@ -43,7 +43,13 @@ type = "Right"
 allowed_room_types = Array[String](["Sand", "Platform"])
 
 [node name="Top" type="Node2D" parent="ConnectionPoints"]
-position = Vector2(615, -25)
+position = Vector2(631, -68)
 script = ExtResource("3_cb1vm")
 type = "Top"
-allowed_room_types = Array[String](["Platform"])
+allowed_room_types = Array[String](["Platform", "Sand"])
+
+[node name="Bottom" type="Node2D" parent="ConnectionPoints"]
+position = Vector2(650, 412)
+script = ExtResource("3_cb1vm")
+type = "Bottom"
+allowed_room_types = Array[String](["Platform", "Sand"])

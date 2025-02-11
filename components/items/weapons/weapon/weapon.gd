@@ -16,7 +16,7 @@ func use():
 		projectile_instance.global_rotation = muzzle_component.global_rotation
 		Utilities.find_nodes_by_class_name(projectile_instance, ProjectileMovement)[0].direction = Vector2(cos(muzzle_component.global_rotation), sin(muzzle_component.global_rotation)) 
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	attack_speed_timer += delta
 	
 func get_in_inventory(inventory: Inventory):

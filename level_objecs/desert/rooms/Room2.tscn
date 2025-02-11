@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://dc48h41v0dn5d"]
+
+[ext_resource type="Script" path="res://level_objecs/desert/rooms/room.gd" id="1_pew16"]
+[ext_resource type="TileSet" uid="uid://bw1n2xyddjie5" path="res://resources/tilesets/MainTileSet.tres" id="2_v6jn8"]
+[ext_resource type="TileSet" uid="uid://448nmucxftil" path="res://resources/tilesets/ExclusionZoneTileset.tres" id="3_5en5i"]
+[ext_resource type="Script" path="res://level_objecs/desert/rooms/connection_point.gd" id="4_8xqnt"]
+
+[node name="Room0" type="Node2D"]
+script = ExtResource("1_pew16")
+type = "Sand"
+value = 8.0
+
+[node name="TileMapLayers" type="Node2D" parent="."]
+
+[node name="Foreground" type="TileMapLayer" parent="TileMapLayers"]
+z_index = 200
+z_as_relative = false
+tile_set = ExtResource("2_v6jn8")
+
+[node name="Ground" type="TileMapLayer" parent="TileMapLayers"]
+z_index = 100
+z_as_relative = false
+tile_set = ExtResource("3_5en5i")
+
+[node name="Background" type="TileMapLayer" parent="TileMapLayers"]
+z_index = -100
+z_as_relative = false
+tile_set = ExtResource("2_v6jn8")
+
+[node name="ConnectionPoints" type="Node2D" parent="."]
+
+[node name="Left" type="Node2D" parent="ConnectionPoints"]
+position = Vector2(-109, 0)
+script = ExtResource("4_8xqnt")
+type = "Left"
+allowed_room_types = Array[String](["Sand", "Platform"])
+
+[node name="Right" type="Node2D" parent="ConnectionPoints"]
+position = Vector2(1464, 2)
+script = ExtResource("4_8xqnt")
+type = "Right"
+allowed_room_types = Array[String](["Sand", "Platform"])
+
+[node name="Top" type="Node2D" parent="ConnectionPoints"]
+position = Vector2(616, -64)
+script = ExtResource("4_8xqnt")
+type = "Top"
+allowed_room_types = Array[String](["Platform", "Sand"])
+
+[node name="SpawnPoints" type="Node2D" parent="."]

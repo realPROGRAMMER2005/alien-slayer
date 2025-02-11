@@ -1,7 +1,15 @@
 extends Node
 
+@onready var level
+
+func _ready() -> void:
+	init_level()
+
 func get_level():
-	return	get_tree().root.get_node("Game").get_node("Level")
+	return level
+
+func init_level():
+	level = get_tree().root.get_node("Game").get_node("Level")
 	
 func find_nodes_by_name(root: Node, node_name: String) -> Array:
 	var result = []

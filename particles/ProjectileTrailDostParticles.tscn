@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://cr3i2xubb8ywk"]
 
 [node name="ProjectileTrailDostParticles" type="CPUParticles2D"]
-self_modulate = Color(1, 1, 15, 1)
 emitting = false
 amount = 1
 lifetime = 0.5
@@ -11,3 +10,5 @@ spread = 180.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 6.0
 initial_velocity_max = 6.0
+scale_amount_min = 2.0
+scale_amount_max = 2.0

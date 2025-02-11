@@ -25,7 +25,8 @@ tile_set = ExtResource("2_nkjhd")
 [node name="Background" type="TileMapLayer" parent="TileMapLayers"]
 z_index = -100
 z_as_relative = false
-tile_set = ExtResource("2_nkjhd")
+tile_map_data = PackedByteArray("AAADAPj/AAAAAA4AAAADAPn/AAAAAA8AAAAEAPj/AAABAA4AAAAEAPn/AAABAA8AAAA=")
+tile_set = ExtResource("2_b5evt")
 
 [node name="ConnectionPoints" type="Node2D" parent="."]
 

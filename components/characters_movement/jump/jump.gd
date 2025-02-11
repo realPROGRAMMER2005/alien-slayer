@@ -7,7 +7,7 @@ class_name Jump
 var current_jump_count: int = 0
 
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if character.is_on_floor() and character.velocity.y == 0:
 		current_jump_count = 0
 	

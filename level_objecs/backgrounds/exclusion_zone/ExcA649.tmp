@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://c2wtjoh6muxw4"]
+
+[ext_resource type="Script" path="res://level_objecs/backgrounds/exclusion_zone/exclusion_zone_background_day.gd" id="1_ebk4f"]
+[ext_resource type="Texture2D" uid="uid://dq8limo1bjyuf" path="res://assets/locations/exclusion_zone/2 Background/Day/1.png" id="1_gudje"]
+[ext_resource type="Texture2D" uid="uid://i5nv3bon2p5e" path="res://assets/locations/exclusion_zone/2 Background/Day/2.png" id="2_4sy7b"]
+[ext_resource type="Texture2D" uid="uid://s7p7gn8tuc26" path="res://assets/locations/exclusion_zone/2 Background/Day/3.png" id="3_nh7l4"]
+[ext_resource type="Texture2D" uid="uid://bgj6vm56cdpqt" path="res://assets/locations/exclusion_zone/2 Background/Day/4.png" id="4_selbd"]
+[ext_resource type="Texture2D" uid="uid://cxncpb87n77uh" path="res://assets/locations/exclusion_zone/2 Background/Day/5.png" id="5_0i1i4"]
+
+[node name="ExclusionZoneBackgroundDay" type="ParallaxBackground"]
+script = ExtResource("1_ebk4f")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+texture = ExtResource("1_gudje")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2"]
+texture = ExtResource("2_4sy7b")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer3"]
+texture = ExtResource("3_nh7l4")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer4"]
+texture = ExtResource("4_selbd")
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer5"]
+texture = ExtResource("5_0i1i4")

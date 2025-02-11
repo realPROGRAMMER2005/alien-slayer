@@ -508,7 +508,9 @@ z_index = 5
 z_as_relative = false
 position = Vector2(1, -21)
 sprite_frames = SubResource("SpriteFrames_11xr3")
-animation = &"idle"
+animation = &"run"
+frame = 11
+frame_progress = 0.33157
 
 [node name="Body" type="Node2D" parent="SpaceMarineSprites"]
 

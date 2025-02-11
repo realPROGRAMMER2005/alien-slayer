@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://c62vh34hy10yt"]
+[gd_scene load_steps=7 format=3 uid="uid://c62vh34hy10yt"]
 
+[ext_resource type="PackedScene" uid="uid://c2wtjoh6muxw4" path="res://level_objecs/backgrounds/exclusion_zone/ExclusionZoneBackgroundDay.tscn" id="1_4srvg"]
 [ext_resource type="PackedScene" uid="uid://dss8fr254yb6y" path="res://characters/space_marine/SpaceMarine.tscn" id="1_ppsd2"]
 [ext_resource type="PackedScene" uid="uid://0rvxjrs6o5ue" path="res://camera/Camera.tscn" id="2_mb862"]
 [ext_resource type="PackedScene" uid="uid://dg8t3r4twx44s" path="res://levels/Level.tscn" id="3_tk76v"]
@@ -16,6 +17,9 @@ metadata/_edit_lock_ = true
 position = Vector2(15, -6)
 
 [node name="Camera" parent="SpaceMarine" instance=ExtResource("2_mb862")]
+zoom = Vector2(0.2, 0.2)
+
+[node name="ExclusionZoneBackgroundDay" parent="SpaceMarine/Camera" instance=ExtResource("1_4srvg")]
 
 [node name="Level" parent="." instance=ExtResource("3_tk76v")]
 metadata/_edit_lock_ = true

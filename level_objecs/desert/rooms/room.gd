@@ -17,8 +17,6 @@ func _ready() -> void:
 	update_size()
 	
 
-	
-
 func get_connection_points() -> Array[ConnectionPoint]:
 	connection_points = []
 	for child in get_node("ConnectionPoints").get_children():
@@ -51,6 +49,10 @@ func update_size():
 	
 func get_size():
 	return size
+	
+
+func generate():
+	pass
 
 	
 		

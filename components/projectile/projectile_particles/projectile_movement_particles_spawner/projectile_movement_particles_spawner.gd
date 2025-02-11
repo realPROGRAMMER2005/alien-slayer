@@ -9,7 +9,7 @@ var spawning_interval_timer: float = 0
 func _ready() -> void:
 	level = Utilities.get_level()
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if spawning_interval_timer > spawning_interval and particles_scene:
 		var particles_instance = particles_scene.instantiate()
 		
