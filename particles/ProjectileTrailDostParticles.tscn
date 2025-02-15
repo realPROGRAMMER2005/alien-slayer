@@ -1,13 +1,19 @@
-[gd_scene format=3 uid="uid://cr3i2xubb8ywk"]
+[gd_scene load_steps=2 format=3 uid="uid://cr3i2xubb8ywk"]
+
+[sub_resource type="Curve" id="Curve_41jnm"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.741294, 1), 0.0, 0.0, 0, 0, Vector2(0.761194, 0.506173), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [node name="ProjectileTrailDostParticles" type="CPUParticles2D"]
-self_modulate = Color(1, 1, 15, 1)
+self_modulate = Color(0.71, 0.777, 4, 1)
 emitting = false
 amount = 1
-lifetime = 0.5
 one_shot = true
 direction = Vector2(0, 0)
 spread = 180.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 6.0
 initial_velocity_max = 6.0
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_41jnm")

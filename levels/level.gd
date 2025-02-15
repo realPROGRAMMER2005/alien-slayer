@@ -6,10 +6,10 @@ var room_spawn_chance: float = 1
 var room_rects: Array[Rect2] = []
 var room_scenes: Array[PackedScene] = [
 	load("res://level_objecs/desert/rooms/Room0.tscn"),
-	load("res://level_objecs/desert/rooms/Room1.tscn")
+	load("res://level_objecs/desert/rooms/Room0.tscn")
 ]
 @export var show_room_rects = false
-var value: float = 150
+var value: float = 250
 var current_value: float = 0
 func _ready() -> void:
 	generate()

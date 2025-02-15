@@ -7,7 +7,7 @@ class_name Gravity
 @export var jump_component: Jump
 var is_in_jump = false
 
-func _process(delta):
+func _physics_process(delta: float) -> void:
 	if not character.is_on_floor():
 		character.velocity.y = min(character.velocity.y + gravity_force, max_fall_speed)
 	

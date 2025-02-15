@@ -1441,8 +1441,11 @@ texture = ExtResource("1_6iooo")
 31:32/0 = 0
 32:32/0 = 0
 33:32/0 = 0
+33:32/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 34:32/0 = 0
+34:32/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 35:32/0 = 0
+35:32/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 36:32/0 = 0
 37:32/0 = 0
 38:32/0 = 0
@@ -4908,6 +4911,7 @@ texture = ExtResource("1_6iooo")
 0:12/0 = 0
 0:12/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_8inry")
 0:12/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+33:31/0 = 0
 
 [resource]
 occlusion_layer_0/light_mask = 1
