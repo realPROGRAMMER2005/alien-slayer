@@ -15,7 +15,6 @@ metadata/_edit_lock_ = true
 position = Vector2(43, -607)
 
 [node name="Camera" parent="SpaceMarine" instance=ExtResource("2_mb862")]
-zoom = Vector2(0.23, 0.23)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_aoycx")
