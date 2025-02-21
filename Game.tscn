@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://c62vh34hy10yt"]
+[gd_scene load_steps=5 format=3 uid="uid://c62vh34hy10yt"]
 
 [ext_resource type="PackedScene" uid="uid://dss8fr254yb6y" path="res://characters/space_marine/SpaceMarine.tscn" id="1_ppsd2"]
 [ext_resource type="PackedScene" uid="uid://0rvxjrs6o5ue" path="res://camera/Camera.tscn" id="2_mb862"]
-[ext_resource type="PackedScene" uid="uid://dg8t3r4twx44s" path="res://levels/Level.tscn" id="3_tk76v"]
 [ext_resource type="PackedScene" uid="uid://bp0n88uiw3vtv" path="res://weapons/PlasmaRifle.tscn" id="4_a4k2j"]
 
 [sub_resource type="Environment" id="Environment_aoycx"]
@@ -13,12 +12,10 @@ glow_enabled = true
 metadata/_edit_lock_ = true
 
 [node name="SpaceMarine" parent="." instance=ExtResource("1_ppsd2")]
-position = Vector2(15, -6)
+position = Vector2(43, -607)
 
 [node name="Camera" parent="SpaceMarine" instance=ExtResource("2_mb862")]
-
-[node name="Level" parent="." instance=ExtResource("3_tk76v")]
-metadata/_edit_lock_ = true
+zoom = Vector2(0.23, 0.23)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_aoycx")

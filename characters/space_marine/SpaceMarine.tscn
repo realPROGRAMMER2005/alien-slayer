@@ -494,7 +494,7 @@ jump_component = NodePath("../Jump")
 character = NodePath("..")
 
 [node name="Muzzle" parent="." instance=ExtResource("8_o1wqj")]
-position = Vector2(2.215, -20.885)
+position = Vector2(1, -22)
 
 [node name="SpaceMarineSprites" type="Node2D" parent="." node_paths=PackedStringArray("controller_component", "body")]
 script = ExtResource("8_xxch1")

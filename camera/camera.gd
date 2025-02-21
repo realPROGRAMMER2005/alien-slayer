@@ -11,7 +11,7 @@ func _ready() -> void:
 	pass
 
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	new_position = global_position.lerp(get_global_mouse_position(), follow_speed * delta)
 	
 	
