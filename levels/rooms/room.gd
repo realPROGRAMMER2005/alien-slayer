@@ -1,6 +1,15 @@
 extends Node2D
 class_name Room
 
+@onready var room_area = $RoomArea
+var spawn_points: Array[SpawnPoint] = []
+
+func setup_room_spawn_points():
+	spawn_points = Utilities.find_nodes_by_class_name(self, SpawnPoint)
+
+func generate():
+	pass
+
 func _ready() -> void:
 	setup_room_collision_shape()
 
@@ -29,17 +38,15 @@ func setup_room_collision_shape():
 
 	# Создаем или находим CollisionShape2D
 	var collision_shape: CollisionShape2D
-	if has_node("CollisionShape2D"):
+	if room_area.has_node("CollisionShape2D"):
 		collision_shape = $CollisionShape2D
 	else:
 		collision_shape = CollisionShape2D.new()
 		collision_shape.name = "CollisionShape2D"
-		add_child(collision_shape)
+		room_area.add_child(collision_shape)
 
 	var shape := RectangleShape2D.new()
 	shape.size = total_rect.size
 
 	collision_shape.shape = shape
 	collision_shape.position = total_rect.position + total_rect.size / 2  # Центрируем коллизию
-
-	print("CollisionShape Position:", collision_shape.position, "Size:", shape.size)
