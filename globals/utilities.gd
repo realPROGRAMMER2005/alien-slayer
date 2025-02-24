@@ -1,7 +1,15 @@
 extends Node
+var level: Level
 
+func _ready() -> void:
+	init_level()
+
+func init_level():
+	var game_node = get_tree().root.get_node("Game")
+	level = Utilities.find_node_by_class_name(game_node, Level)
+	
 func get_level():
-	return	get_tree().root.get_node("Game").get_node("Level")
+	return level
 	
 func find_nodes_by_name(root: Node, node_name: String) -> Array:
 	var result = []
@@ -16,7 +24,7 @@ func find_nodes_by_name(root: Node, node_name: String) -> Array:
 func find_nodes_by_class_name(root: Node, node_class_name) -> Array:
 	var result: Array = []
 
-	# Проверяем, является ли узел экземпляром указанного класса или его потомка
+
 	if is_instance_of(root, node_class_name):
 		result.append(root)
 
@@ -49,3 +57,8 @@ func get_component(component_owner_node: Node, component_class_name) -> Node:
 		return founded_nodes_with_class_name[0]
 	return null
 		
+func find_node_by_class_name(root: Node, node_class_name) -> Node:
+	var founded_nodes_with_class_name = find_nodes_by_class_name(root, node_class_name)
+	if len(founded_nodes_with_class_name) > 0:
+		return founded_nodes_with_class_name[0]
+	return null

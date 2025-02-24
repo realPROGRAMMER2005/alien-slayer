@@ -1,17 +1,17 @@
 extends Node2D
 class_name Room
 
-@onready var room_area = $RoomArea
-var spawn_points: Array[SpawnPoint] = []
+var room_area: RoomArea
 
-func setup_room_spawn_points():
-	spawn_points = Utilities.find_nodes_by_class_name(self, SpawnPoint)
+func init_room_area():
+	room_area = Utilities.find_node_by_class_name(self, RoomArea)
 
 func generate():
 	pass
 
 func _ready() -> void:
 	setup_room_collision_shape()
+	init_room_area()
 
 func setup_room_collision_shape():
 	var tile_map_layers: Array = Utilities.find_nodes_by_class_name(self, TileMapLayer)
