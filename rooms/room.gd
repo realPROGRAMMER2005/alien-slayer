@@ -2,16 +2,21 @@ extends Node2D
 class_name Room
 
 var room_area: RoomArea
+var room_width: int
+var room_height: int
+
 
 func init_room_area():
-	room_area = Utilities.find_node_by_class_name(self, RoomArea)
+	room_area = $RoomArea
 
 func generate():
 	pass
 
 func _ready() -> void:
-	setup_room_collision_shape()
 	init_room_area()
+	setup_room_collision_shape()
+
+	update_room_dimensions()
 
 func setup_room_collision_shape():
 	var tile_map_layers: Array = Utilities.find_nodes_by_class_name(self, TileMapLayer)
@@ -33,7 +38,6 @@ func setup_room_collision_shape():
 		if total_rect.has_area():
 			total_rect = total_rect.merge(rect)
 		else:
-			
 			total_rect = rect
 
 	# Создаем или находим CollisionShape2D
@@ -50,3 +54,11 @@ func setup_room_collision_shape():
 
 	collision_shape.shape = shape
 	collision_shape.position = total_rect.position + total_rect.size / 2  # Центрируем коллизию
+
+func update_room_dimensions():
+	var collision_shape: CollisionShape2D = room_area.get_node("CollisionShape2D")
+	if collision_shape:
+		var rect_shape: RectangleShape2D = collision_shape.shape
+		if rect_shape:
+			room_width = int(rect_shape.size.x)
+			room_height = int(rect_shape.size.y)
