@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://jwnels0hk435"]
+
+[ext_resource type="Script" path="res://components/ai/character_detection_area/character_detection_area.gd" id="1_23jng"]
+
+[node name="CharacterDetectionArea" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_23jng")
+
+[connection signal="body_entered" from="." to="." method="_on_character_entered"]

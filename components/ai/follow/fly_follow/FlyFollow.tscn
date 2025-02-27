@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8mhs8rch5tig"]
+
+[ext_resource type="Script" path="res://components/ai/follow/fly_follow/fly_follow.gd" id="1_fyg4v"]
+
+[node name="FlyFollow" type="Node2D"]
+script = ExtResource("1_fyg4v")

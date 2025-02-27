@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhgdk6jpmw1gs"]
+
+[ext_resource type="Script" path="res://components/faction/faction.gd" id="1_004er"]
+
+[node name="Faction" type="Node"]
+script = ExtResource("1_004er")

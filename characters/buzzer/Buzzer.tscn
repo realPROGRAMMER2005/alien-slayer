@@ -1,10 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://df1clyqlx0kqo"]
+[gd_scene load_steps=16 format=3 uid="uid://df1clyqlx0kqo"]
 
 [ext_resource type="Script" path="res://characters/character.gd" id="1_msosr"]
 [ext_resource type="Texture2D" uid="uid://15wgs3idiap7" path="res://assets/characters/aliens/enemies_sprite_sheet_0.png" id="1_yvxtf"]
 [ext_resource type="Script" path="res://characters/buzzer/buzzer_sprite.gd" id="3_lgvw8"]
-[ext_resource type="Script" path="res://components/ai/path_finder.gd" id="4_4etl2"]
+[ext_resource type="Script" path="res://components/ai/pathfinder/path_finder.gd" id="4_4etl2"]
 [ext_resource type="Script" path="res://components/characters_movement/fly/fly.gd" id="5_cp62w"]
+[ext_resource type="Script" path="res://components/faction/faction.gd" id="6_qkn4a"]
+[ext_resource type="PackedScene" uid="uid://jwnels0hk435" path="res://components/ai/character_detection_area/CharacterDetectionArea.tscn" id="7_wor1t"]
+[ext_resource type="PackedScene" uid="uid://b8mhs8rch5tig" path="res://components/ai/follow/fly_follow/FlyFollow.tscn" id="8_on3uo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pmd6t"]
 atlas = ExtResource("1_yvxtf")
@@ -45,6 +48,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_g6ijs"]
 radius = 6.74348
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_iu83b"]
+radius = 232.215
+
 [node name="Buzzer" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_msosr")
@@ -64,3 +70,21 @@ script = ExtResource("4_4etl2")
 [node name="Fly" type="Node" parent="." node_paths=PackedStringArray("character")]
 script = ExtResource("5_cp62w")
 character = NodePath("..")
+
+[node name="Faction" type="Node" parent="."]
+script = ExtResource("6_qkn4a")
+current_faction = 1
+friendly_factions = Array[int]([1])
+hostile_factions = Array[int]([0])
+
+[node name="CharacterDetectionArea" parent="." node_paths=PackedStringArray("faction_component", "body", "follow_component") instance=ExtResource("7_wor1t")]
+faction_component = NodePath("../Faction")
+body = NodePath("..")
+follow_component = NodePath("../FlyFollow")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterDetectionArea"]
+shape = SubResource("CircleShape2D_iu83b")
+
+[node name="FlyFollow" parent="." node_paths=PackedStringArray("fly_component", "pathfinder") instance=ExtResource("8_on3uo")]
+fly_component = NodePath("../Fly")
+pathfinder = NodePath("../Pathfinder")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://dss8fr254yb6y"]
+[gd_scene load_steps=82 format=3 uid="uid://dss8fr254yb6y"]
 
 [ext_resource type="Script" path="res://characters/character.gd" id="1_8y1tx"]
 [ext_resource type="PackedScene" uid="uid://h8b5qluj7x5m" path="res://components/characters_movement/move/Move.tscn" id="2_nj16v"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://components/combat/hitbox.gd" id="11_wxqln"]
 [ext_resource type="Script" path="res://components/combat/health.gd" id="12_asypr"]
 [ext_resource type="PackedScene" uid="uid://dvtqj518tk0na" path="res://components/inventory/Inventory.tscn" id="12_on8wm"]
+[ext_resource type="Script" path="res://components/faction/faction.gd" id="13_7jyik"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_11atl"]
 size = Vector2(11.5, 29.5)
@@ -561,3 +562,8 @@ shape = SubResource("CapsuleShape2D_l8d2e")
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("12_asypr")
+
+[node name="Faction" type="Node" parent="."]
+script = ExtResource("13_7jyik")
+friendly_factions = Array[int]([0])
+hostile_factions = Array[int]([1])

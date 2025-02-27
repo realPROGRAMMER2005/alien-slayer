@@ -17,7 +17,7 @@ config/features=PackedStringArray("4.3", "GL Compatibility")
 [autoload]
 
 Utilities="*res://globals/utilities.gd"
-FractionList="*res://globals/fraction_list.gd"
+FactionList="*res://globals/faction_list.gd"
 
 [display]
 
