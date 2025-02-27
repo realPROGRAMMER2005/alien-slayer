@@ -9,4 +9,6 @@ script = ExtResource("1_ucn8e")
 [node name="TileMapLayers" type="Node2D" parent="."]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="TileMapLayers"]
+z_index = 100
+z_as_relative = false
 tile_set = ExtResource("2_dagin")
