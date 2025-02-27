@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2pukvdstk73m"]
+
+[ext_resource type="Script" path="res://components/characters_movement/fly/fly.gd" id="1_rx6h7"]
+
+[node name="Fly" type="Node"]
+script = ExtResource("1_rx6h7")

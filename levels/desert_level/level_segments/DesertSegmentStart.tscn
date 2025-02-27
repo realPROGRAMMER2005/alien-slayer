@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://ekgg0yrly6at"]
+[gd_scene load_steps=9 format=4 uid="uid://ekgg0yrly6at"]
 
 [ext_resource type="Script" path="res://levels/base/level_segments/level_segment.gd" id="1_ucn8e"]
 [ext_resource type="TileSet" uid="uid://dha2aagim3ipm" path="res://resources/tilesets/MassiveTileset.tres" id="2_dagin"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://c56vcfqb0gij6" path="res://levels/player_spawn_point/PlayerSpawnPoint.tscn" id="4_nn8jy"]
 [ext_resource type="Script" path="res://levels/spawn_point/spawn_point.gd" id="5_rfd3l"]
 [ext_resource type="PackedScene" uid="uid://bp0n88uiw3vtv" path="res://weapons/PlasmaRifle.tscn" id="6_bdvc1"]
+[ext_resource type="PackedScene" uid="uid://df8s1q5h8binn" path="res://levels/spawn_point/SpawnPoint.tscn" id="7_n5i3v"]
+[ext_resource type="PackedScene" uid="uid://df1clyqlx0kqo" path="res://characters/buzzer/Buzzer.tscn" id="8_pqmxm"]
 
 [node name="DesertSegmentStart" type="Node2D"]
 script = ExtResource("1_ucn8e")
@@ -37,3 +39,8 @@ position = Vector2(944, -16)
 script = ExtResource("5_rfd3l")
 chance_to_spawn = 1.0
 object_scene = ExtResource("6_bdvc1")
+
+[node name="SpawnPoint2" parent="." instance=ExtResource("7_n5i3v")]
+position = Vector2(1160, -72)
+chance_to_spawn = 1.0
+object_scene = ExtResource("8_pqmxm")

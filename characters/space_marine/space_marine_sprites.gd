@@ -10,15 +10,21 @@ func _process(delta: float) -> void:
 	if controller_component:
 		set_body_frame_by_angle(controller_component.aiming_angle)
 	
-	if body.velocity.x != 0:
-		legs_sprite.play("run")
-	else:
-		legs_sprite.play("idle")
+	if body.velocity.y == 0:
+		if body.velocity.x != 0:
+			legs_sprite.play("run")
+		else:
+			legs_sprite.play("idle")
 	
 	if body.velocity.x > 0:
 		legs_sprite.scale.x = 1
 	if body.velocity.x < 0:
 		legs_sprite.scale.x = -1
+	
+	if not body.is_on_floor() and body.velocity.y < 0:
+		legs_sprite.play("jump")
+	elif not body.is_on_floor() and body.velocity.y >= 0:
+		legs_sprite.play("fall")
 			
 
 func set_body_frame_by_angle(aiming_angle: float) -> void:

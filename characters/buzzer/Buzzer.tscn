@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://df1clyqlx0kqo"]
+[gd_scene load_steps=12 format=3 uid="uid://df1clyqlx0kqo"]
 
 [ext_resource type="Script" path="res://characters/character.gd" id="1_msosr"]
 [ext_resource type="Texture2D" uid="uid://15wgs3idiap7" path="res://assets/characters/aliens/enemies_sprite_sheet_0.png" id="1_yvxtf"]
 [ext_resource type="Script" path="res://characters/buzzer/buzzer_sprite.gd" id="3_lgvw8"]
+[ext_resource type="Script" path="res://components/ai/path_finder.gd" id="4_4etl2"]
+[ext_resource type="Script" path="res://components/characters_movement/fly/fly.gd" id="5_cp62w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pmd6t"]
 atlas = ExtResource("1_yvxtf")
@@ -53,6 +55,12 @@ frame_progress = 0.27051
 script = ExtResource("3_lgvw8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0.222725, 0.668175)
 shape = SubResource("CircleShape2D_g6ijs")
+
+[node name="Pathfinder" type="Node2D" parent="."]
+script = ExtResource("4_4etl2")
+
+[node name="Fly" type="Node" parent="." node_paths=PackedStringArray("character")]
+script = ExtResource("5_cp62w")
+character = NodePath("..")

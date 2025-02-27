@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://c62vh34hy10yt"]
+[gd_scene load_steps=3 format=3 uid="uid://c62vh34hy10yt"]
 
 [ext_resource type="PackedScene" uid="uid://bdt8lxsyo8rqp" path="res://levels/desert_level/level/DesertLevel.tscn" id="1_1atuv"]
-[ext_resource type="PackedScene" uid="uid://bp0n88uiw3vtv" path="res://weapons/PlasmaRifle.tscn" id="4_a4k2j"]
 
 [sub_resource type="Environment" id="Environment_aoycx"]
 background_mode = 3
@@ -14,9 +13,3 @@ metadata/_edit_lock_ = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="DesertLevel"]
 environment = SubResource("Environment_aoycx")
-
-[node name="PlasmaRifle" parent="DesertLevel" instance=ExtResource("4_a4k2j")]
-position = Vector2(273, -101)
-
-[node name="PlasmaRifle2" parent="DesertLevel" instance=ExtResource("4_a4k2j")]
-position = Vector2(202, -117)

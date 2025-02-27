@@ -6,7 +6,11 @@ class_name Level
 var next_segment_position: Vector2 = Vector2(0, 0)
 @export var segment_scenes: Array[PackedScene]
 @export var level_length_in_segments: int = 120
+@export var background_scene: PackedScene
 
+func add_background():
+	var background_instance = background_scene.instantiate()
+	add_child(background_instance)
 
 
 func generate_segment(segment_scene: PackedScene) -> void:
@@ -24,4 +28,5 @@ func generate():
 	
 func _ready() -> void:
 	generate()
+	add_background()
 	

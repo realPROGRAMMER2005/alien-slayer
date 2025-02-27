@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://dss8fr254yb6y"]
+[gd_scene load_steps=81 format=3 uid="uid://dss8fr254yb6y"]
 
 [ext_resource type="Script" path="res://characters/character.gd" id="1_8y1tx"]
 [ext_resource type="PackedScene" uid="uid://h8b5qluj7x5m" path="res://components/characters_movement/move/Move.tscn" id="2_nj16v"]
@@ -9,14 +9,24 @@
 [ext_resource type="Script" path="res://characters/space_marine/space_marine_sprites.gd" id="8_xxch1"]
 [ext_resource type="Script" path="res://components/interactables/interactor.gd" id="10_yjqav"]
 [ext_resource type="PackedScene" uid="uid://b3lkn5tq6pe3a" path="res://components/interactables/InteractorArea.tscn" id="11_ul0u7"]
+[ext_resource type="Script" path="res://components/combat/hitbox.gd" id="11_wxqln"]
+[ext_resource type="Script" path="res://components/combat/health.gd" id="12_asypr"]
 [ext_resource type="PackedScene" uid="uid://dvtqj518tk0na" path="res://components/inventory/Inventory.tscn" id="12_on8wm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_11atl"]
 size = Vector2(11.5, 29.5)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ps6xv"]
+atlas = ExtResource("8_pweao")
+region = Rect2(252, 4, 46, 46)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_ktfl8"]
 atlas = ExtResource("8_pweao")
 region = Rect2(2, 2, 46, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gj5oy"]
+atlas = ExtResource("8_pweao")
+region = Rect2(452, 4, 46, 46)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jf0b3"]
 atlas = ExtResource("8_pweao")
@@ -70,10 +80,26 @@ region = Rect2(652, 2, 46, 46)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_ps6xv")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ktfl8")
 }],
 "loop": true,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gj5oy")
+}],
+"loop": true,
+"name": &"jump",
 "speed": 5.0
 }, {
 "frames": [{
@@ -465,6 +491,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_e3ass"]
 radius = 47.0106
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l8d2e"]
+radius = 8.0
+
 [node name="SpaceMarine" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_8y1tx")
@@ -489,9 +518,8 @@ jump_force = 330.0
 [node name="Muzzle" parent="." instance=ExtResource("8_o1wqj")]
 position = Vector2(1, -22)
 
-[node name="SpaceMarineSprites" type="Node2D" parent="." node_paths=PackedStringArray("controller_component", "body")]
+[node name="SpaceMarineSprites" type="Node2D" parent="." node_paths=PackedStringArray("body")]
 script = ExtResource("8_xxch1")
-controller_component = NodePath("")
 body = NodePath("..")
 
 [node name="Legs" type="Node2D" parent="SpaceMarineSprites"]
@@ -501,7 +529,7 @@ z_index = 5
 z_as_relative = false
 position = Vector2(1, -21)
 sprite_frames = SubResource("SpriteFrames_11xr3")
-animation = &"idle"
+animation = &"jump"
 
 [node name="Body" type="Node2D" parent="SpaceMarineSprites"]
 
@@ -522,3 +550,14 @@ position = Vector2(1, -17)
 shape = SubResource("CircleShape2D_e3ass")
 
 [node name="Inventory" parent="." instance=ExtResource("12_on8wm")]
+
+[node name="Hitbox" type="Area2D" parent="." node_paths=PackedStringArray("health_component")]
+script = ExtResource("11_wxqln")
+health_component = NodePath("../Health")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(1, -15)
+shape = SubResource("CapsuleShape2D_l8d2e")
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("12_asypr")

@@ -1,8 +1,10 @@
 extends Node
 var level: Level
 
+
 func _ready() -> void:
 	init_level()
+
 
 func init_level():
 	var game_node = get_tree().root.get_node("Game")

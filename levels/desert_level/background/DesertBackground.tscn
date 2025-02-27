@@ -1,5 +1,106 @@
-[gd_scene format=3 uid="uid://dlxqm38q0y78q"]
+[gd_scene load_steps=4 format=3 uid="uid://dlxqm38q0y78q"]
+
+[ext_resource type="Texture2D" uid="uid://c60qgb8g2hn6c" path="res://assets/backgrounds/desert/desert_backgorund_back.png" id="1_7llvr"]
+[ext_resource type="Texture2D" uid="uid://di24dp0kn5hux" path="res://assets/backgrounds/desert/desert_background_mid.png" id="2_1ej8r"]
+[ext_resource type="Texture2D" uid="uid://c4uuy65h3ql17" path="res://assets/backgrounds/desert/desert_background_front.png" id="2_1gcmx"]
 
 [node name="DesertBackground" type="ParallaxBackground"]
 
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+position = Vector2(-304, -96)
+motion_scale = Vector2(0, 0)
+
+[node name="DesertBackgorundBack" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(729.636, 88.4286)
+scale = Vector2(1.92127, 1.92127)
+texture = ExtResource("1_7llvr")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+position = Vector2(-6, 170)
+motion_scale = Vector2(0.07, 0.07)
+motion_mirroring = Vector2(896, 0)
+
+[node name="DesertBackgroundMid" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(38, -27)
+texture = ExtResource("2_1ej8r")
+
+[node name="DesertBackgroundMid2" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(102, -26)
+texture = ExtResource("2_1ej8r")
+
+[node name="DesertBackgroundMid3" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(166, -26)
+texture = ExtResource("2_1ej8r")
+
+[node name="DesertBackgroundMid4" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(230, -26)
+texture = ExtResource("2_1ej8r")
+
+[node name="DesertBackgroundMid5" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(294, -26)
+texture = ExtResource("2_1ej8r")
+
+[node name="DesertBackgroundMid6" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(358, -26)
+texture = ExtResource("2_1ej8r")
+
+[node name="DesertBackgroundMid7" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(422, -26)
+texture = ExtResource("2_1ej8r")
+
+[node name="DesertBackgroundMid8" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(486, -26)
+texture = ExtResource("2_1ej8r")
+
+[node name="DesertBackgroundMid9" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(550, -26)
+texture = ExtResource("2_1ej8r")
+
+[node name="DesertBackgroundMid10" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(614, -26)
+texture = ExtResource("2_1ej8r")
+
+[node name="DesertBackgroundMid11" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(678, -26)
+texture = ExtResource("2_1ej8r")
+
+[node name="DesertBackgroundMid12" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(742, -26)
+texture = ExtResource("2_1ej8r")
+
+[node name="DesertBackgroundMid13" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(806, -26)
+texture = ExtResource("2_1ej8r")
+
+[node name="DesertBackgroundMid14" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(870, -26)
+texture = ExtResource("2_1ej8r")
+
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+position = Vector2(-8, 147)
+motion_scale = Vector2(0.08, 0.08)
+motion_mirroring = Vector2(864, 0)
+
+[node name="DesertBackgroundFront" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(72, 144)
+texture = ExtResource("2_1gcmx")
+
+[node name="DesertBackgroundFront2" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(216, 144)
+texture = ExtResource("2_1gcmx")
+
+[node name="DesertBackgroundFront3" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(360, 144)
+texture = ExtResource("2_1gcmx")
+
+[node name="DesertBackgroundFront4" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(504, 144)
+texture = ExtResource("2_1gcmx")
+
+[node name="DesertBackgroundFront5" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(648, 144)
+texture = ExtResource("2_1gcmx")
+
+[node name="DesertBackgroundFront6" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(792, 144)
+texture = ExtResource("2_1gcmx")

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cr3i2xubb8ywk"]
 
 [node name="ProjectileTrailDostParticles" type="CPUParticles2D"]
-self_modulate = Color(0.71, 0.777, 4, 1)
+self_modulate = Color(0.71, 0.777, 8, 1)
 emitting = false
 amount = 1
 one_shot = true
