@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://c62vh34hy10yt"]
+[gd_scene load_steps=5 format=3 uid="uid://c62vh34hy10yt"]
 
 [ext_resource type="PackedScene" uid="uid://dss8fr254yb6y" path="res://characters/space_marine/SpaceMarine.tscn" id="1_ppsd2"]
 [ext_resource type="PackedScene" uid="uid://0rvxjrs6o5ue" path="res://camera/Camera.tscn" id="2_mb862"]
 [ext_resource type="PackedScene" uid="uid://bp0n88uiw3vtv" path="res://weapons/PlasmaRifle.tscn" id="4_a4k2j"]
-[ext_resource type="PackedScene" uid="uid://dkpot8pq18fb" path="res://levels/desert/DesertLevel.tscn" id="4_wuusu"]
 
 [sub_resource type="Environment" id="Environment_aoycx"]
 background_mode = 3
@@ -25,5 +24,3 @@ position = Vector2(273, -101)
 
 [node name="PlasmaRifle2" parent="." instance=ExtResource("4_a4k2j")]
 position = Vector2(202, -117)
-
-[node name="Level" parent="." instance=ExtResource("4_wuusu")]

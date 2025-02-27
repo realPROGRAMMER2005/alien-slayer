@@ -1,4 +1,7 @@
-extends Node2D
+[gd_scene load_steps=2 format=3 uid="uid://c14wa8kk7cave"]
+
+[sub_resource type="GDScript" id="GDScript_htu21"]
+script/source = "extends Node2D
 class_name Level
 
 @export var has_ground: bool = true
@@ -78,3 +81,9 @@ func is_position_colliding(position: Vector2) -> bool:
 		if room_rect.intersects(new_room_rect):
 			return true
 	return false
+"
+
+[node name="Level" type="Node2D"]
+script = SubResource("GDScript_htu21")
+
+[node name="Rooms" type="Node2D" parent="."]
