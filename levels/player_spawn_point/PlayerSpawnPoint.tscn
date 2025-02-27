@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://c56vcfqb0gij6"]
+
+[ext_resource type="Script" path="res://levels/player_spawn_point/player_spawn_point.gd" id="1_i56bu"]
+[ext_resource type="PackedScene" uid="uid://dsg6ueq3pd436" path="res://characters/player/Player.tscn" id="2_b7rx7"]
+[ext_resource type="PackedScene" uid="uid://0rvxjrs6o5ue" path="res://camera/Camera.tscn" id="3_1dxg3"]
+
+[node name="PlayerSpawnPoint" type="Node2D"]
+script = ExtResource("1_i56bu")
+character_scene = ExtResource("2_b7rx7")
+camera_scene = ExtResource("3_1dxg3")

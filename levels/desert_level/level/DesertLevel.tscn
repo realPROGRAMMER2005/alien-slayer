@@ -1,6 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://bdt8lxsyo8rqp"]
+[gd_scene load_steps=12 format=3 uid="uid://bdt8lxsyo8rqp"]
 
-[ext_resource type="Script" path="res://levels/base/level.gd" id="1_ojqbd"]
+[ext_resource type="Script" path="res://levels/base/level/level.gd" id="1_ojqbd"]
+[ext_resource type="PackedScene" uid="uid://ekgg0yrly6at" path="res://levels/desert_level/level_segments/DesertSegmentStart.tscn" id="2_escwu"]
+[ext_resource type="PackedScene" uid="uid://crjv3rp87eerc" path="res://levels/desert_level/level_segments/DesertSegmentA.tscn" id="3_f2f3b"]
+[ext_resource type="PackedScene" uid="uid://dsq3yfjggfn78" path="res://levels/desert_level/level_segments/DesertSegmentB.tscn" id="4_0uidr"]
+[ext_resource type="PackedScene" uid="uid://p150x7do51ma" path="res://levels/desert_level/level_segments/DesertSegmentC.tscn" id="5_bkgch"]
+[ext_resource type="PackedScene" uid="uid://can0ohwy3jkdt" path="res://levels/desert_level/level_segments/DesertSegmentD.tscn" id="6_5vj75"]
+[ext_resource type="PackedScene" uid="uid://dxm05vmouuyy4" path="res://levels/desert_level/level_segments/DesertSegmentE.tscn" id="7_d1mi2"]
+[ext_resource type="PackedScene" uid="uid://e7rfv5otnl7b" path="res://levels/desert_level/level_segments/DesertSegmentF.tscn" id="8_h12aa"]
+[ext_resource type="PackedScene" uid="uid://dj0qcl0o8axhx" path="res://levels/desert_level/level_segments/DesertSegmentG.tscn" id="9_vltn3"]
+[ext_resource type="PackedScene" uid="uid://bv5ppuvxtc4gl" path="res://levels/desert_level/level_segments/DesertSegmentH.tscn" id="10_6iy0p"]
+[ext_resource type="PackedScene" uid="uid://diwln8bclxgq1" path="res://levels/desert_level/level_segments/DesertSegmentI.tscn" id="11_uy8xl"]
 
 [node name="DesertLevel" type="Node2D"]
 script = ExtResource("1_ojqbd")
+start_segment_scene = ExtResource("2_escwu")
+end_segment_scene = ExtResource("3_f2f3b")
+segment_scenes = Array[PackedScene]([ExtResource("3_f2f3b"), ExtResource("4_0uidr"), ExtResource("5_bkgch"), ExtResource("6_5vj75"), ExtResource("7_d1mi2"), ExtResource("8_h12aa"), ExtResource("9_vltn3"), ExtResource("10_6iy0p"), ExtResource("11_uy8xl")])

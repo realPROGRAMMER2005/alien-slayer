@@ -8,6 +8,7 @@ var next_segment_position: Vector2 = Vector2(0, 0)
 @export var level_length_in_segments: int = 120
 
 
+
 func generate_segment(segment_scene: PackedScene) -> void:
 	var segment_instance: LevelSegment = segment_scene.instantiate()
 	add_child(segment_instance)

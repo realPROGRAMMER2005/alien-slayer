@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://df8s1q5h8binn"]
+
+[ext_resource type="Script" path="res://levels/spawn_point/spawn_point.gd" id="1_2immw"]
+
+[node name="SpawnPoint" type="Node2D"]
+script = ExtResource("1_2immw")
+chance_to_spawn = 0.01

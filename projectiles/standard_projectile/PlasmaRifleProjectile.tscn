@@ -29,7 +29,7 @@ visible = false
 shape = SubResource("RectangleShape2D_4knri")
 
 [node name="ProjectileStraightMovement" parent="." instance=ExtResource("3_jy3yk")]
-speed = 500.0
+speed = 600.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 3, 1)
