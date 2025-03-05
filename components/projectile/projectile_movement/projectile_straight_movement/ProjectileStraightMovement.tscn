@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" path="res://components/projectile/projectile_movement/projectile_straight_movement/projectile_straight_movement.gd" id="1_lo01d"]
 
-[node name="ProjectileStraightMovement" type="Node"]
+[node name="ProjectileMovement" type="Node"]
 script = ExtResource("1_lo01d")

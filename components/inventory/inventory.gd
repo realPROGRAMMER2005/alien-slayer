@@ -5,6 +5,7 @@ var items: Array
 @export var max_item_stacks = 1
 var current_item_stacks_quantity = 0
 var equipped_item_index: int = 0
+@onready var inventory_owner = owner
 
 func _ready() -> void:
 	init_items_array()
@@ -56,4 +57,13 @@ func drop_item_by_index(item_to_drop_index: int) -> void:
 func use_equipped_item() -> void:
 	if items[equipped_item_index] != null:
 		items[equipped_item_index].use()
-	
+
+func get_equipped_item():
+	return items[equipped_item_index]
+
+func _process(delta: float) -> void:
+	if get_child_count() > 0:
+		for item_body in get_children():
+			var item_component = Utilities.find_node_by_class_name(item_body, Item)
+			if not item_component.item_owner:
+				pick_up_item(item_component)

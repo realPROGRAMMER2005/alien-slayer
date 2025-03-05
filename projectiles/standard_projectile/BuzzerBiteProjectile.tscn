@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://wpfl4rq33me2"]
+
+[ext_resource type="PackedScene" uid="uid://cmtocjwmb7osv" path="res://projectiles/standard_projectile/StandardProjectile.tscn" id="1_v4jhc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m2mlr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_umw51"]
+radius = 1.0
+
+[node name="ProjectileBody" instance=ExtResource("1_v4jhc")]
+collision_layer = 0
+collision_mask = 0
+
+[node name="LifetimeDisappear" parent="." index="0"]
+lifetime = 0.5
+
+[node name="ProjectileCollisionDamageDisappear" parent="." index="1"]
+monitoring = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ProjectileCollisionDamageDisappear" index="0"]
+shape = SubResource("CircleShape2D_m2mlr")
+
+[node name="ProjectileStraightMovement" parent="." index="2"]
+speed = 50.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="4"]
+visible = false
+shape = SubResource("CircleShape2D_umw51")

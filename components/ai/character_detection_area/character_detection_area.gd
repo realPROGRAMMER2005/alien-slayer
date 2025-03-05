@@ -17,4 +17,4 @@ func _on_character_entered(other_character: Node2D) -> void:
 			if other_character_faction_component.current_faction in faction_component.hostile_factions:
 				is_searching_for_enemy = false
 				follow_component.target = other_character
-				print(other_character)
+				follow_component.is_following = true

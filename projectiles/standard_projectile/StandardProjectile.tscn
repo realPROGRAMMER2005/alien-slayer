@@ -5,11 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://djg6l055b0425" path="res://components/projectile/projectile_movement/projectile_straight_movement/ProjectileStraightMovement.tscn" id="3_y1gb6"]
 [ext_resource type="Script" path="res://components/combat/damage.gd" id="4_tlsbu"]
 
-[node name="StandardProjectile" type="CharacterBody2D"]
+[node name="ProjectileBody" type="CharacterBody2D"]
 
 [node name="LifetimeDisappear" parent="." instance=ExtResource("1_dhss2")]
 
 [node name="ProjectileCollisionDamageDisappear" parent="." node_paths=PackedStringArray("damage_component") instance=ExtResource("2_7e1h0")]
+monitoring = true
 damage_component = NodePath("../Damage")
 
 [node name="ProjectileStraightMovement" parent="." instance=ExtResource("3_y1gb6")]

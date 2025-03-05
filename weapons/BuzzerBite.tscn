@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cexlnd38wqukw"]
+
+[ext_resource type="Script" path="res://components/items/weapons/weapon/weapon.gd" id="1_vd0vi"]
+[ext_resource type="PackedScene" uid="uid://wpfl4rq33me2" path="res://projectiles/standard_projectile/BuzzerBiteProjectile.tscn" id="2_m4aar"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pv7or"]
+radius = 5.0
+
+[node name="BuzzerBite" type="RigidBody2D"]
+collision_layer = 0
+
+[node name="Weapon" type="Node" parent="."]
+script = ExtResource("1_vd0vi")
+projectile_scene = ExtResource("2_m4aar")
+attack_speed = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_pv7or")

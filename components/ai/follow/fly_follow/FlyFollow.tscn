@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" path="res://components/ai/follow/fly_follow/fly_follow.gd" id="1_fyg4v"]
 
-[node name="FlyFollow" type="Node2D"]
+[node name="FlyFollow" type="Node"]
 script = ExtResource("1_fyg4v")

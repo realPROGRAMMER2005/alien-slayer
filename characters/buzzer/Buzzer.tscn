@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://df1clyqlx0kqo"]
+[gd_scene load_steps=23 format=3 uid="uid://df1clyqlx0kqo"]
 
 [ext_resource type="Script" path="res://characters/character.gd" id="1_msosr"]
 [ext_resource type="Texture2D" uid="uid://15wgs3idiap7" path="res://assets/characters/aliens/enemies_sprite_sheet_0.png" id="1_yvxtf"]
@@ -8,6 +8,13 @@
 [ext_resource type="Script" path="res://components/faction/faction.gd" id="6_qkn4a"]
 [ext_resource type="PackedScene" uid="uid://jwnels0hk435" path="res://components/ai/character_detection_area/CharacterDetectionArea.tscn" id="7_wor1t"]
 [ext_resource type="PackedScene" uid="uid://b8mhs8rch5tig" path="res://components/ai/follow/fly_follow/FlyFollow.tscn" id="8_on3uo"]
+[ext_resource type="PackedScene" uid="uid://c4dcw22wtwqbt" path="res://components/combat/Hitbox.tscn" id="9_b0wab"]
+[ext_resource type="PackedScene" uid="uid://cjpvoionfl2px" path="res://components/combat/Health.tscn" id="10_p1p7e"]
+[ext_resource type="PackedScene" uid="uid://rov6figx2xrm" path="res://components/ai/attack/AttackInventoryItemUse.tscn" id="11_2j5x6"]
+[ext_resource type="PackedScene" uid="uid://dvtqj518tk0na" path="res://components/inventory/Inventory.tscn" id="12_c83l5"]
+[ext_resource type="PackedScene" uid="uid://cexlnd38wqukw" path="res://weapons/BuzzerBite.tscn" id="13_rqs1s"]
+[ext_resource type="Script" path="res://components/combat/muzzle.gd" id="14_tgqoc"]
+[ext_resource type="Script" path="res://components/ai/look_at/look_at.gd" id="15_3qh7i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pmd6t"]
 atlas = ExtResource("1_yvxtf")
@@ -61,6 +68,7 @@ frame_progress = 0.27051
 script = ExtResource("3_lgvw8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0.222725, 0.668175)
 shape = SubResource("CircleShape2D_g6ijs")
 
@@ -78,6 +86,7 @@ friendly_factions = Array[int]([1])
 hostile_factions = Array[int]([0])
 
 [node name="CharacterDetectionArea" parent="." node_paths=PackedStringArray("faction_component", "body", "follow_component") instance=ExtResource("7_wor1t")]
+visible = false
 faction_component = NodePath("../Faction")
 body = NodePath("..")
 follow_component = NodePath("../FlyFollow")
@@ -85,6 +94,34 @@ follow_component = NodePath("../FlyFollow")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterDetectionArea"]
 shape = SubResource("CircleShape2D_iu83b")
 
-[node name="FlyFollow" parent="." node_paths=PackedStringArray("fly_component", "pathfinder") instance=ExtResource("8_on3uo")]
+[node name="FlyFollow" parent="." node_paths=PackedStringArray("fly_component", "pathfinder", "attack_component", "look_at_component") instance=ExtResource("8_on3uo")]
 fly_component = NodePath("../Fly")
 pathfinder = NodePath("../Pathfinder")
+attack_component = NodePath("../AttackInventoryItemUse")
+look_at_component = NodePath("../LookAt")
+
+[node name="Hitbox" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("9_b0wab")]
+health_component = NodePath("../Health")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+visible = false
+position = Vector2(0.222725, 0.668175)
+shape = SubResource("CircleShape2D_g6ijs")
+
+[node name="Health" parent="." instance=ExtResource("10_p1p7e")]
+
+[node name="AttackInventoryItemUse" parent="." node_paths=PackedStringArray("attacker_inventory_component", "look_at_component", "muzzle_component", "follow_component") instance=ExtResource("11_2j5x6")]
+attacker_inventory_component = NodePath("../Inventory")
+look_at_component = NodePath("../LookAt")
+muzzle_component = NodePath("../Muzzle")
+follow_component = NodePath("../FlyFollow")
+
+[node name="Inventory" parent="." instance=ExtResource("12_c83l5")]
+
+[node name="BuzzerBite" parent="Inventory" instance=ExtResource("13_rqs1s")]
+
+[node name="Muzzle" type="Node2D" parent="."]
+script = ExtResource("14_tgqoc")
+
+[node name="LookAt" type="Node2D" parent="."]
+script = ExtResource("15_3qh7i")

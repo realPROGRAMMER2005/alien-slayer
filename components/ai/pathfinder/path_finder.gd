@@ -3,7 +3,7 @@ class_name Pathfinder
 
 @export var ray_count: int = 8  # Количество лучей для обхода препятствий
 @export var ray_spread: float = 90.0  # Угол разброса лучей (в градусах)
-@export var ray_length: float = 100.0  # Длина лучей
+@export var ray_length: float = 30  # Длина лучей
 
 var target_position: Vector2 = Vector2.ZERO
 var rays: Array = []  # Массив для хранения созданных RayCast2D

@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://dss8fr254yb6y"]
+[gd_scene load_steps=83 format=3 uid="uid://dss8fr254yb6y"]
 
 [ext_resource type="Script" path="res://characters/character.gd" id="1_8y1tx"]
 [ext_resource type="PackedScene" uid="uid://h8b5qluj7x5m" path="res://components/characters_movement/move/Move.tscn" id="2_nj16v"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ehsbcdo77ri7" path="res://assets/characters/space_marine/spritesheets/space_marine_parts_spritesheet.png" id="8_pweao"]
 [ext_resource type="Script" path="res://characters/space_marine/space_marine_sprites.gd" id="8_xxch1"]
 [ext_resource type="Script" path="res://components/interactables/interactor.gd" id="10_yjqav"]
+[ext_resource type="PackedScene" uid="uid://bp0n88uiw3vtv" path="res://weapons/PlasmaRifle.tscn" id="11_cc622"]
 [ext_resource type="PackedScene" uid="uid://b3lkn5tq6pe3a" path="res://components/interactables/InteractorArea.tscn" id="11_ul0u7"]
 [ext_resource type="Script" path="res://components/combat/hitbox.gd" id="11_wxqln"]
 [ext_resource type="Script" path="res://components/combat/health.gd" id="12_asypr"]
@@ -552,7 +553,11 @@ shape = SubResource("CircleShape2D_e3ass")
 
 [node name="Inventory" parent="." instance=ExtResource("12_on8wm")]
 
+[node name="PlasmaRifle" parent="Inventory" instance=ExtResource("11_cc622")]
+
 [node name="Hitbox" type="Area2D" parent="." node_paths=PackedStringArray("health_component")]
+collision_layer = 32
+collision_mask = 0
 script = ExtResource("11_wxqln")
 health_component = NodePath("../Health")
 

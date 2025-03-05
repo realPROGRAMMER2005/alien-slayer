@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" path="res://components/projectile/lifetime/lifetime_disappear/lifetime_disappear.gd" id="1_5fkol"]
 
-[node name="LifetimeDisappear" type="Node"]
+[node name="Lifetime" type="Node"]
 script = ExtResource("1_5fkol")

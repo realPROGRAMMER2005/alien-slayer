@@ -14,7 +14,7 @@ size = Vector2(14, 8)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l8pwq"]
 size = Vector2(14, 8)
 
-[node name="PlasmaRifleProjectile" type="CharacterBody2D"]
+[node name="ProjectileBody" type="CharacterBody2D"]
 collision_layer = 0
 collision_mask = 0
 

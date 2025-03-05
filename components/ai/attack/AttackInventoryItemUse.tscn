@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://rov6figx2xrm"]
+
+[ext_resource type="Script" path="res://components/ai/attack/attack_inventory_item_use.gd" id="1_kntbi"]
+
+[node name="AttackInventoryItemUse" type="Node"]
+script = ExtResource("1_kntbi")

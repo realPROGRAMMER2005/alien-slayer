@@ -8,6 +8,10 @@
 [node name="SpaceMarineSprites" parent="." index="5" node_paths=PackedStringArray("controller_component")]
 controller_component = NodePath("../PlayerController")
 
+[node name="Hitbox" parent="." index="9"]
+collision_layer = 32
+collision_mask = 0
+
 [node name="PlayerController" type="Node2D" parent="." index="11" node_paths=PackedStringArray("move_component", "jump_component", "muzzle_component", "interactor_component", "inventory_component")]
 script = ExtResource("11_1v6so")
 move_component = NodePath("../Move")
