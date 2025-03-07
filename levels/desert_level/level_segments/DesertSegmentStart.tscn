@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://ekgg0yrly6at"]
+[gd_scene load_steps=10 format=4 uid="uid://ekgg0yrly6at"]
 
 [ext_resource type="Script" path="res://levels/base/level_segments/level_segment.gd" id="1_ucn8e"]
 [ext_resource type="TileSet" uid="uid://dha2aagim3ipm" path="res://resources/tilesets/MassiveTileset.tres" id="2_dagin"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bp0n88uiw3vtv" path="res://weapons/PlasmaRifle.tscn" id="6_bdvc1"]
 [ext_resource type="PackedScene" uid="uid://df8s1q5h8binn" path="res://levels/spawn_point/SpawnPoint.tscn" id="7_n5i3v"]
 [ext_resource type="PackedScene" uid="uid://df1clyqlx0kqo" path="res://characters/buzzer/Buzzer.tscn" id="8_pqmxm"]
+[ext_resource type="PackedScene" uid="uid://ffrswwvxaan8" path="res://particles/WorldImpactPartilces.tscn" id="9_aoghf"]
 
 [node name="DesertSegmentStart" type="Node2D"]
 script = ExtResource("1_ucn8e")
@@ -44,3 +45,6 @@ object_scene = ExtResource("6_bdvc1")
 position = Vector2(1160, -72)
 chance_to_spawn = 1.0
 object_scene = ExtResource("8_pqmxm")
+
+[node name="ImpactParticles" parent="." instance=ExtResource("9_aoghf")]
+position = Vector2(960, -40)

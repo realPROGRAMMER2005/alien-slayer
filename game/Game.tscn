@@ -4,12 +4,13 @@
 
 [sub_resource type="Environment" id="Environment_aoycx"]
 background_mode = 3
+ambient_light_color = Color(0.0430392, 0.0430392, 0.0430392, 1)
 glow_enabled = true
 
 [node name="Game" type="Node2D"]
 metadata/_edit_lock_ = true
 
-[node name="DesertLevel" parent="." instance=ExtResource("1_1atuv")]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="DesertLevel"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_aoycx")
+
+[node name="DesertLevel" parent="." instance=ExtResource("1_1atuv")]

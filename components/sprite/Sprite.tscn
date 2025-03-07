@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsvwimtmi2cur"]
+
+[ext_resource type="Script" path="res://components/sprite/sprite.gd" id="1_ldvbn"]
+
+[node name="Sprite" type="Node2D"]
+script = ExtResource("1_ldvbn")

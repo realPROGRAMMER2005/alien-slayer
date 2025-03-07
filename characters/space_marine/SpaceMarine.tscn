@@ -1,9 +1,10 @@
-[gd_scene load_steps=83 format=3 uid="uid://dss8fr254yb6y"]
+[gd_scene load_steps=86 format=3 uid="uid://dss8fr254yb6y"]
 
 [ext_resource type="Script" path="res://characters/character.gd" id="1_8y1tx"]
 [ext_resource type="PackedScene" uid="uid://h8b5qluj7x5m" path="res://components/characters_movement/move/Move.tscn" id="2_nj16v"]
 [ext_resource type="PackedScene" uid="uid://ckmygylgi5b30" path="res://components/gravity/Gravity.tscn" id="4_u0ivd"]
 [ext_resource type="PackedScene" uid="uid://d0fig7d5drson" path="res://components/characters_movement/jump/Jump.tscn" id="5_8sa8l"]
+[ext_resource type="Shader" uid="uid://64iy6w5v83yo" path="res://resources/shaders/damage_shader.res" id="7_3gi1u"]
 [ext_resource type="PackedScene" uid="uid://ch8l1vq1kmu4s" path="res://components/combat/Muzzle.tscn" id="8_o1wqj"]
 [ext_resource type="Texture2D" uid="uid://ehsbcdo77ri7" path="res://assets/characters/space_marine/spritesheets/space_marine_parts_spritesheet.png" id="8_pweao"]
 [ext_resource type="Script" path="res://characters/space_marine/space_marine_sprites.gd" id="8_xxch1"]
@@ -17,6 +18,11 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_11atl"]
 size = Vector2(11.5, 29.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n1706"]
+shader = ExtResource("7_3gi1u")
+shader_parameter/enabled = false
+shader_parameter/ColorParameter = Color(1, 1, 1, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ps6xv"]
 atlas = ExtResource("8_pweao")
@@ -145,6 +151,11 @@ animations = [{
 "name": &"run",
 "speed": 12.0
 }]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5vpyg"]
+shader = ExtResource("7_3gi1u")
+shader_parameter/enabled = false
+shader_parameter/ColorParameter = Color(1, 1, 1, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dxpo7"]
 atlas = ExtResource("8_pweao")
@@ -502,6 +513,7 @@ script = ExtResource("1_8y1tx")
 metadata/_edit_horizontal_guides_ = [-326.0, -1843.0]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(1.25, -15.25)
 shape = SubResource("RectangleShape2D_11atl")
 
@@ -520,15 +532,17 @@ jump_force = 330.0
 [node name="Muzzle" parent="." instance=ExtResource("8_o1wqj")]
 position = Vector2(1, -22)
 
-[node name="SpaceMarineSprites" type="Node2D" parent="." node_paths=PackedStringArray("body")]
+[node name="SpaceMarineSprites" type="Node2D" parent="." node_paths=PackedStringArray("body", "sprite_parts")]
 script = ExtResource("8_xxch1")
 body = NodePath("..")
+sprite_parts = [NodePath("Legs/AnimatedSprite2D"), NodePath("Body/AnimatedSprite2D")]
 
 [node name="Legs" type="Node2D" parent="SpaceMarineSprites"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SpaceMarineSprites/Legs"]
 z_index = 5
 z_as_relative = false
+material = SubResource("ShaderMaterial_n1706")
 position = Vector2(1, -21)
 sprite_frames = SubResource("SpriteFrames_11xr3")
 animation = &"jump"
@@ -538,7 +552,8 @@ animation = &"jump"
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SpaceMarineSprites/Body"]
 z_index = 5
 z_as_relative = false
-position = Vector2(1, -21)
+material = SubResource("ShaderMaterial_5vpyg")
+position = Vector2(0.76403, -21)
 sprite_frames = SubResource("SpriteFrames_ei7d1")
 
 [node name="Interactor" type="Node" parent="." node_paths=PackedStringArray("interactor_area_component")]
@@ -546,27 +561,33 @@ script = ExtResource("10_yjqav")
 interactor_area_component = NodePath("../InteractorArea")
 
 [node name="InteractorArea" parent="." instance=ExtResource("11_ul0u7")]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractorArea"]
+visible = false
 position = Vector2(1, -17)
 shape = SubResource("CircleShape2D_e3ass")
 
 [node name="Inventory" parent="." instance=ExtResource("12_on8wm")]
 
 [node name="PlasmaRifle" parent="Inventory" instance=ExtResource("11_cc622")]
+visible = false
 
 [node name="Hitbox" type="Area2D" parent="." node_paths=PackedStringArray("health_component")]
+visible = false
 collision_layer = 32
 collision_mask = 0
 script = ExtResource("11_wxqln")
 health_component = NodePath("../Health")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+visible = false
 position = Vector2(1, -15)
 shape = SubResource("CapsuleShape2D_l8d2e")
 
-[node name="Health" type="Node" parent="."]
+[node name="Health" type="Node" parent="." node_paths=PackedStringArray("sprite")]
 script = ExtResource("12_asypr")
+sprite = NodePath("../SpaceMarineSprites")
 
 [node name="Faction" type="Node" parent="."]
 script = ExtResource("13_7jyik")

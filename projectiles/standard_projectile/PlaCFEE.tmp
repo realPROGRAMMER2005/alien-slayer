@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://bgr23i2kk8jny"]
+[gd_scene load_steps=10 format=3 uid="uid://bgr23i2kk8jny"]
 
 [ext_resource type="PackedScene" uid="uid://bjhfxjpdrboy4" path="res://components/projectile/lifetime/lifetime_disappear/LifetimeDisappear.tscn" id="1_jbls6"]
 [ext_resource type="PackedScene" uid="uid://cwnqe050rc7yx" path="res://components/projectile/projectile_collision/projectile_collision_damage_dissappear/ProjectileCollisionDamageDisappear.tscn" id="2_es7ko"]
 [ext_resource type="PackedScene" uid="uid://djg6l055b0425" path="res://components/projectile/projectile_movement/projectile_straight_movement/ProjectileStraightMovement.tscn" id="3_jy3yk"]
-[ext_resource type="PackedScene" uid="uid://ffrswwvxaan8" path="res://particles/WorldImpactPartilces.tscn" id="3_riq5g"]
 [ext_resource type="Texture2D" uid="uid://b86y8m23bil4m" path="res://assets/projectiles/blue_projectile.png" id="4_kobyc"]
 [ext_resource type="Script" path="res://components/combat/damage.gd" id="5_v2rr3"]
 [ext_resource type="PackedScene" uid="uid://ba86h6fd0m62s" path="res://components/projectile/projectile_particles/projectile_movement_particles_spawner/ProjectileMovementParticlesSpawner.tscn" id="6_c3vmp"]
@@ -24,7 +23,6 @@ collision_mask = 0
 [node name="ProjectileCollisionDamageDisappear" parent="." node_paths=PackedStringArray("damage_component") instance=ExtResource("2_es7ko")]
 monitoring = true
 damage_component = NodePath("../Damage")
-world_impact_particles_scene = ExtResource("3_riq5g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ProjectileCollisionDamageDisappear"]
 position = Vector2(4, 0)

@@ -8,7 +8,7 @@ class_name PlayerController
 @export var inventory_component: Inventory
 var aiming_angle = 0
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if muzzle_component:
 		aiming_angle = (rad_to_deg(muzzle_component.global_position.angle_to_point(get_global_mouse_position())))
 		muzzle_component.rotation_degrees = aiming_angle

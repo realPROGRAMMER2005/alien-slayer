@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://df1clyqlx0kqo"]
+[gd_scene load_steps=26 format=3 uid="uid://df1clyqlx0kqo"]
 
 [ext_resource type="Script" path="res://characters/character.gd" id="1_msosr"]
 [ext_resource type="Texture2D" uid="uid://15wgs3idiap7" path="res://assets/characters/aliens/enemies_sprite_sheet_0.png" id="1_yvxtf"]
@@ -13,8 +13,21 @@
 [ext_resource type="PackedScene" uid="uid://rov6figx2xrm" path="res://components/ai/attack/AttackInventoryItemUse.tscn" id="11_2j5x6"]
 [ext_resource type="PackedScene" uid="uid://dvtqj518tk0na" path="res://components/inventory/Inventory.tscn" id="12_c83l5"]
 [ext_resource type="PackedScene" uid="uid://cexlnd38wqukw" path="res://weapons/BuzzerBite.tscn" id="13_rqs1s"]
+[ext_resource type="Script" path="res://components/sprite/sprite.gd" id="14_kp2gm"]
 [ext_resource type="Script" path="res://components/combat/muzzle.gd" id="14_tgqoc"]
 [ext_resource type="Script" path="res://components/ai/look_at/look_at.gd" id="15_3qh7i"]
+[ext_resource type="Shader" uid="uid://64iy6w5v83yo" path="res://resources/shaders/damage_shader.res" id="15_q11k1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g6ijs"]
+radius = 6.74348
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iu83b"]
+radius = 232.215
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5uwwv"]
+shader = ExtResource("15_q11k1")
+shader_parameter/enabled = false
+shader_parameter/ColorParameter = Color(1, 1, 1, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pmd6t"]
 atlas = ExtResource("1_yvxtf")
@@ -52,20 +65,9 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_g6ijs"]
-radius = 6.74348
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_iu83b"]
-radius = 232.215
-
 [node name="Buzzer" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_msosr")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_n572t")
-frame_progress = 0.27051
-script = ExtResource("3_lgvw8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -108,7 +110,8 @@ visible = false
 position = Vector2(0.222725, 0.668175)
 shape = SubResource("CircleShape2D_g6ijs")
 
-[node name="Health" parent="." instance=ExtResource("10_p1p7e")]
+[node name="Health" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("10_p1p7e")]
+sprite = NodePath("../Sprite")
 
 [node name="AttackInventoryItemUse" parent="." node_paths=PackedStringArray("attacker_inventory_component", "look_at_component", "muzzle_component", "follow_component") instance=ExtResource("11_2j5x6")]
 attacker_inventory_component = NodePath("../Inventory")
@@ -125,3 +128,13 @@ script = ExtResource("14_tgqoc")
 
 [node name="LookAt" type="Node2D" parent="."]
 script = ExtResource("15_3qh7i")
+
+[node name="Sprite" type="Node2D" parent="." node_paths=PackedStringArray("sprite_parts")]
+script = ExtResource("14_kp2gm")
+sprite_parts = [NodePath("AnimatedSprite2D")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprite"]
+material = SubResource("ShaderMaterial_5uwwv")
+sprite_frames = SubResource("SpriteFrames_n572t")
+frame_progress = 0.27051
+script = ExtResource("3_lgvw8")

@@ -14,9 +14,6 @@ collision_mask = 0
 [node name="LifetimeDisappear" parent="." index="0"]
 lifetime = 0.5
 
-[node name="ProjectileCollisionDamageDisappear" parent="." index="1"]
-monitoring = true
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ProjectileCollisionDamageDisappear" index="0"]
 shape = SubResource("CircleShape2D_m2mlr")
 

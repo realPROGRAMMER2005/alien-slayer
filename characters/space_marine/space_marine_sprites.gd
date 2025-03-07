@@ -1,4 +1,4 @@
-extends Node2D
+extends Sprite
 
 @onready var legs_sprite = get_node("Legs/AnimatedSprite2D")
 @onready var body_sprite = get_node("Body/AnimatedSprite2D")
@@ -6,7 +6,9 @@ extends Node2D
 @export var body: CharacterBody2D
 
 
+
 func _process(delta: float) -> void:
+	super(delta)
 	if controller_component:
 		set_body_frame_by_angle(controller_component.aiming_angle)
 	

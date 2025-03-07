@@ -23,4 +23,6 @@ func _on_hitbox_entered(target_hitbox_component: Hitbox) -> void:
 
 
 func _on_world_entered(body: Node2D) -> void:
+	print(body)
+	add_world_impact_particles()
 	owner.queue_free()
