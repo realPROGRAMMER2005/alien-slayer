@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2j6jwlyuekx"]
+
+[ext_resource type="Script" uid="uid://ctb2kpiqblmlq" path="res://scenes/components/animation/animation_manager_node/animation_manager_node.gd" id="1_okiq7"]
+
+[node name="AnimationManagerNode" type="Node"]
+script = ExtResource("1_okiq7")

@@ -1,0 +1,2 @@
+extends ControllerNode
+class_name AIControllerNode

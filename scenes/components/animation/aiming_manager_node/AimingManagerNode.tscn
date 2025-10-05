@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://tgh63xhq6ybg"]
+
+[ext_resource type="Script" uid="uid://docbee8ioh1p2" path="res://scenes/components/animation/aiming_manager_node/aiming_manager_node.gd" id="1_52asr"]
+
+[node name="AimingManagerNode" type="Node"]
+script = ExtResource("1_52asr")

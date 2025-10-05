@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://cbljjkyankvy"]
+
+[ext_resource type="PackedScene" uid="uid://d0q2hxx5vs78r" path="res://scenes/components/controls/controller_node/player_controller_node/PlayerContollerNode.tscn" id="1_fi2nf"]
+[ext_resource type="PackedScene" uid="uid://bv13tcxd7oefm" path="res://scenes/components/movement/character_body_2D_movement/CharacterBody2DMovementNode.tscn" id="2_3qk4m"]
+[ext_resource type="PackedScene" uid="uid://ll2hsl0vjdm2" path="res://scenes/components/skeletons/space_marine_skeleton/SpaceMarineSkeleton.tscn" id="3_3qk4m"]
+[ext_resource type="PackedScene" uid="uid://d2j6jwlyuekx" path="res://scenes/components/animation/animation_manager_node/AnimationManagerNode.tscn" id="4_ffrr4"]
+[ext_resource type="PackedScene" uid="uid://tgh63xhq6ybg" path="res://scenes/components/animation/aiming_manager_node/AimingManagerNode.tscn" id="5_1am2i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ffrr4"]
+size = Vector2(10, 16)
+
+[node name="SpaceMarine" type="CharacterBody2D"]
+
+[node name="PlayerInputContoller" parent="." node_paths=PackedStringArray("movement_node") instance=ExtResource("1_fi2nf")]
+movement_node = NodePath("../CharacterBody2DMovementNode")
+
+[node name="CharacterBody2DMovementNode" parent="." instance=ExtResource("2_3qk4m")]
+jump_force = 300.0
+falling_gravity_scale = 2.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="SpaceMarineSkeleton" parent="." instance=ExtResource("3_3qk4m")]
+position = Vector2(0, -21)
+
+[node name="AnimationManagerNode" parent="." instance=ExtResource("4_ffrr4")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_ffrr4")
+
+[node name="AimingManagerNode" parent="." instance=ExtResource("5_1am2i")]

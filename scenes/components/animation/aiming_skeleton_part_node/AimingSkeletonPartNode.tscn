@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://g42qowmh4lyh"]
+
+[ext_resource type="Script" uid="uid://dno3ks1q3bfwi" path="res://scenes/components/animation/aiming_skeleton_part_node/aiming_skeleton_part_node.gd" id="1_mexpu"]
+
+[node name="AimingSkeletonPartNode" type="Node"]
+script = ExtResource("1_mexpu")

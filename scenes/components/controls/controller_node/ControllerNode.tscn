@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://p8atha8dw64w"]
+
+[ext_resource type="Script" uid="uid://dll16766qs2qs" path="res://scenes/components/controls/controller_node/controller_node.gd" id="1_whi10"]
+
+[node name="ControllerNode" type="Node"]
+script = ExtResource("1_whi10")
