@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://ll2hsl0vjdm2"]
+[gd_scene load_steps=83 format=3 uid="uid://ll2hsl0vjdm2"]
 
 [ext_resource type="Script" uid="uid://c6qiawn7iwthm" path="res://scenes/components/skeletons/space_marine_skeleton/space_marine_skeleton.gd" id="1_g8ldd"]
 [ext_resource type="Texture2D" uid="uid://ddpi0ycmlidxj" path="res://assets/images/sprites/characters/space_marine/char-parts.png" id="2_dffis"]
@@ -502,30 +502,6 @@ tracks/1/keys = {
 "update": 1,
 "values": [3]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("LegsAnimatedSprite2D/BodyAnimatedSprite2D:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("LegsAnimatedSprite2D/BodyAnimatedSprite2D:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_e5acx"]
 resource_name = "idle"
@@ -541,30 +517,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [&"idle"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("LegsAnimatedSprite2D/BodyAnimatedSprite2D:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1.07, 1.07)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("LegsAnimatedSprite2D/BodyAnimatedSprite2D:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, -0.2)]
 }
 
 [sub_resource type="Animation" id="Animation_s25ny"]
@@ -635,15 +587,129 @@ _data = {
 &"move": SubResource("Animation_dffis")
 }
 
+[sub_resource type="Animation" id="Animation_inlp5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LegsAnimatedSprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_y14ve"]
+resource_name = "idle"
+length = 0.6
+capture_included = true
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LegsAnimatedSprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(2.143547),
+"update": 2,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_0vb6n"]
+resource_name = "move_left"
+length = 0.6
+capture_included = true
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LegsAnimatedSprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(2.0000005),
+"update": 2,
+"values": [-0.06981317007977318]
+}
+
+[sub_resource type="Animation" id="Animation_p8e86"]
+resource_name = "move_right"
+length = 0.6
+capture_included = true
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LegsAnimatedSprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.23333333),
+"transitions": PackedFloat32Array(2.0000002),
+"update": 2,
+"values": [0.06981317007977318]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_inlp5"]
+_data = {
+&"RESET": SubResource("Animation_inlp5"),
+&"idle": SubResource("Animation_y14ve"),
+&"move_left": SubResource("Animation_0vb6n"),
+&"move_right": SubResource("Animation_p8e86")
+}
+
+[sub_resource type="Animation" id="Animation_81f7y"]
+resource_name = "breath"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../LegsAnimatedSprite2D/BodyAnimatedSprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.33333334, 0.6666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.94, 1.06), Vector2(1.06, 0.94)]
+}
+
+[sub_resource type="Animation" id="Animation_txr6m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../LegsAnimatedSprite2D/BodyAnimatedSprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_txr6m"]
+_data = {
+&"RESET": SubResource("Animation_txr6m"),
+&"breath": SubResource("Animation_81f7y")
+}
+
 [node name="SpaceMarineSkeleton" type="Node2D"]
 script = ExtResource("1_g8ldd")
 
 [node name="LegsAnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 23)
 sprite_frames = SubResource("SpriteFrames_s4idr")
 animation = &"move"
 frame = 3
+offset = Vector2(0, -23)
 
 [node name="BodyAnimatedSprite2D" type="AnimatedSprite2D" parent="LegsAnimatedSprite2D"]
+position = Vector2(0, -23)
 sprite_frames = SubResource("SpriteFrames_g8ldd")
 animation = &"idle"
 
@@ -662,4 +728,15 @@ owner_node = NodePath("..")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_s4idr")
+}
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_inlp5")
+}
+
+[node name="AnimationPlayer3" type="AnimationPlayer" parent="."]
+root_node = NodePath("../AnimationPlayer2")
+libraries = {
+&"": SubResource("AnimationLibrary_txr6m")
 }

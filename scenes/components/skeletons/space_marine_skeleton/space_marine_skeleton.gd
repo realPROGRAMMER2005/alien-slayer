@@ -17,17 +17,21 @@ func _process(delta: float) -> void:
 		character_body_2D = get_parent()
 	
 
-	
+	animation_signal.emit("breath")
 	if character_body_2D.is_on_floor():
 		
 		if character_body_2D.velocity.x != 0:
 			animation_signal.emit("move")
 			
+			
 			if character_body_2D.velocity.x < 0:
 				legs_animated_sprite_2D.flip_h = true
+				animation_signal.emit("move_left")
+				
 			
 			else:
 				legs_animated_sprite_2D.flip_h = false
+				animation_signal.emit("move_right")
 				
 		
 		else:
@@ -42,17 +46,8 @@ func _process(delta: float) -> void:
 	
 	body_animated_sprite_2D.frame = _get_frame_index_from_angle(weapon_skeleton_aiming_part_node.aiming_anlge_degrees)
 	
-	
-		
-		
-	
-	
-	
+
 func _get_frame_index_from_angle(angle: float) -> int:
-	# Всего 48 кадров, каждый кадр покрывает 360 / 48 = 7.5 градусов
-	var step = 360.0 / 48.0  # Шаг в градусах на один кадр
-	# Вычисляем индекс кадра, начиная с 0 для зеленой линии (0 градусов)
-	# Учитываем, что кадры идут "спускаются вниз", то есть против часовой стрелки
+	var step = 360.0 / 48.0 
 	var frame = int(angle / step) % 48
-	# Корректировка, чтобы 0 градусов соответствовал первому кадру (зеленая линия)
 	return frame

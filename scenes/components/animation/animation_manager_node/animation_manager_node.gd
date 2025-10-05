@@ -25,15 +25,17 @@ func update_animation_requestors():
 	# Обновляем список реквестеров
 	var search_criteria = NodeFinder.SearchCriteria.new()
 	search_criteria.signal_name = "animation_signal"
-	animation_requestors = NodeFinder.find_nodes(get_parent(), search_criteria)
+	animation_requestors = NodeFinder.find_nodes(get_parent(), search_criteria, NodeFinder.SearchDirection.DOWN, true)
 	
 	for requestor in animation_requestors:
 		SignalUtilities.safe_connect(requestor, "animation_signal", self, "_on_animation_requestor_animation_requested")
 
 func update_animation_players():
-	animation_players = get_parent().find_children("*", "AnimationPlayer")
+	
+	animation_players = get_parent().find_children("**", "AnimationPlayer", true, false)
 	
 func _on_animation_requestor_animation_requested(animation_name: String):
+	print(animation_players)
 	for animation_player: AnimationPlayer in animation_players:
 		if animation_player.has_animation(animation_name):
 			animation_player.play(animation_name)
