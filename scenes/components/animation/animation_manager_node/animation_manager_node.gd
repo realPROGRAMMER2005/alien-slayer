@@ -32,10 +32,9 @@ func update_animation_requestors():
 
 func update_animation_players():
 	
-	animation_players = get_parent().find_children("**", "AnimationPlayer", true, false)
+	animation_players = get_parent().find_children("*", "AnimationPlayer", true, false)
 	
 func _on_animation_requestor_animation_requested(animation_name: String):
-	print(animation_players)
 	for animation_player: AnimationPlayer in animation_players:
 		if animation_player.has_animation(animation_name):
 			animation_player.play(animation_name)

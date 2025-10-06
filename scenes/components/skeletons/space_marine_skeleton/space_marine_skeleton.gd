@@ -17,7 +17,6 @@ func _process(delta: float) -> void:
 		character_body_2D = get_parent()
 	
 
-	animation_signal.emit("breath")
 	if character_body_2D.is_on_floor():
 		
 		if character_body_2D.velocity.x != 0:
