@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://co8lnx4tmrv2q"]
+
+[ext_resource type="Script" uid="uid://oe1o308kucgn" path="res://scenes/components/locaion/segment_location_generator_node/linear_segment_location_generator_node/linear_location_segment_generator_node.gd" id="1_yy6qy"]
+
+[node name="LinearLocationSegmentGeneratorNode" type="Node"]
+script = ExtResource("1_yy6qy")

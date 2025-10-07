@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://kbgbh7yfh7ha"]
+
+[ext_resource type="Script" uid="uid://uer7x6y51m8e" path="res://scenes/components/locaion/location_generator_node/location_generator_node.gd" id="1_py8w3"]
+
+[node name="LocationGeneratorNode" type="Node"]
+script = ExtResource("1_py8w3")

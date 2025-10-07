@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" uid="uid://cjp7n78va4k5b" path="res://scenes/components/controls/controller_node/player_controller_node/player_contoller_node.gd" id="1_h2lb7"]
 
-[node name="PlayerContoller" type="Node"]
+[node name="ContollerNode" type="Node"]
 script = ExtResource("1_h2lb7")

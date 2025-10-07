@@ -1,20 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://c3q077eucto86"]
+[gd_scene load_steps=3 format=3 uid="uid://c3q077eucto86"]
 
-[ext_resource type="PackedScene" uid="uid://cbljjkyankvy" path="res://scenes/prefabs/characters/space_marine/SpaceMarine.tscn" id="1_wbfu4"]
+[ext_resource type="PackedScene" uid="uid://f83vad8lq3st" path="res://scenes/prefabs/characters/space_marine/space_marine_player/space_marine_player.tscn" id="1_wbfu4"]
+[ext_resource type="PackedScene" uid="uid://b3da5gplb20wx" path="res://scenes/components/locaion/location/desert_location/DesertLocation.tscn" id="2_xkndl"]
 
 [node name="Game" type="Node2D"]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-z_index = 1
-z_as_relative = false
-
-[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
-color = Color(0.9999996, 0.61888856, 0.19038081, 1)
-polygon = PackedVector2Array(-192, 0, 192, 0, 192, 192, -192, 192)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-visible = false
-polygon = PackedVector2Array(-192, 0, -192, 192, 192, 192, 192, 0)
-
 [node name="SpaceMarine" parent="." instance=ExtResource("1_wbfu4")]
-position = Vector2(-24, -64)
+
+[node name="DesertLocation" parent="." instance=ExtResource("2_xkndl")]

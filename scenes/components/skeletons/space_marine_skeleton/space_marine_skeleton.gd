@@ -13,6 +13,9 @@ signal animation_signal(animation_name: String)
 
 
 func _process(delta: float) -> void:
+	
+	animation_signal.emit("breath")
+	
 	if not character_body_2D:
 		character_body_2D = get_parent()
 	
@@ -42,6 +45,9 @@ func _process(delta: float) -> void:
 		
 		else:
 			animation_signal.emit("in_air_rise")
+		
+
+		
 	
 	body_animated_sprite_2D.frame = _get_frame_index_from_angle(weapon_skeleton_aiming_part_node.aiming_anlge_degrees)
 	

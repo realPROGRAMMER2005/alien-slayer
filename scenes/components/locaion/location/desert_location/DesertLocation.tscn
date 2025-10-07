@@ -1,0 +1,16 @@
+[gd_scene load_steps=6 format=3 uid="uid://b3da5gplb20wx"]
+
+[ext_resource type="Script" uid="uid://c8ls6uea6tynr" path="res://scenes/components/locaion/location/location.gd" id="1_rty37"]
+[ext_resource type="PackedScene" uid="uid://co8lnx4tmrv2q" path="res://scenes/components/locaion/segment_location_generator_node/linear_segment_location_generator_node/LinearLocationSegmentGeneratorNode.tscn" id="2_8q84m"]
+[ext_resource type="PackedScene" uid="uid://eqy2hjt8jr7k" path="res://scenes/prefabs/location_segments/desert/start/DesertLocationStartSegmentA.tscn" id="3_fg5ui"]
+[ext_resource type="PackedScene" uid="uid://dwc8e3vwkw6hm" path="res://scenes/prefabs/location_segments/desert/default/DesertLocationSegmentA.tscn" id="4_ll0b1"]
+[ext_resource type="PackedScene" uid="uid://e31hc5dqq03j" path="res://scenes/prefabs/location_segments/desert/end/DesertLocationEndSegmentA.tscn" id="5_4wwla"]
+
+[node name="DesertLocation" type="Node2D"]
+script = ExtResource("1_rty37")
+metadata/_custom_type_script = "uid://c8ls6uea6tynr"
+
+[node name="LinearLocationSegmentGeneratorNode" parent="." instance=ExtResource("2_8q84m")]
+start_segment_scenes = Array[PackedScene]([ExtResource("3_fg5ui")])
+default_segment_scenes = Array[PackedScene]([ExtResource("4_ll0b1")])
+end_segment_scenes = Array[PackedScene]([ExtResource("5_4wwla")])

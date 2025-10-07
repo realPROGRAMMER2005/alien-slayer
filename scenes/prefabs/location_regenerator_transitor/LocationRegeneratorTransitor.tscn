@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://kunhadpnc02j"]
+
+[ext_resource type="PackedScene" uid="uid://bgfqgslkd776f" path="res://scenes/components/interaction/interactable_node/InteractableNode.tscn" id="2_7jmai"]
+
+[node name="LevelRegeneratorTransitor" type="Node2D"]
+
+[node name="InteractableNode" parent="." instance=ExtResource("2_7jmai")]

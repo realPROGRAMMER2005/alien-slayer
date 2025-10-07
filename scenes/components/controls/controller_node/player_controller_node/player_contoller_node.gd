@@ -1,9 +1,11 @@
 extends ControllerNode
-class_name PlayerController
+class_name PlayerControllerNode
 
 @export var movement_node: CharacterBody2DMovementNode
 @export var aiming_manager_node: AimingManagerNode
+@export var interactor_node: InteractorNode
 @export var owner_node: Node2D
+@export var enabled: bool = true
 
 func _process(delta: float) -> void:
 	if not movement_node:
@@ -11,6 +13,9 @@ func _process(delta: float) -> void:
 		
 	if not aiming_manager_node:
 		aiming_manager_node = get_parent().get_node("AimingManagerNode")
+		
+	if not aiming_manager_node:
+		aiming_manager_node = get_parent().get_node("InteractorNode")
 	
 	if not owner_node:
 		owner_node = get_parent()
@@ -30,3 +35,8 @@ func _physics_process(_delta: float) -> void:
 	if aiming_manager_node and owner_node:
 		aiming_manager_node.aim_to_point = owner_node.get_global_mouse_position()
 		aiming_manager_node.trigger_aiming = true
+	
+	
+	if interactor_node:
+		if Input.is_action_just_pressed("interact"):
+			interactor_node.interact()
