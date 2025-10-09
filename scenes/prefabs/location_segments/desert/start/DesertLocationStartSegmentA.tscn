@@ -8,7 +8,7 @@ normal = Vector2(1, 0)
 [node name="DesertLocationStartSegmentA" type="Node2D"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(1034, -31)
+position = Vector2(824, -32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("WorldBoundaryShape2D_6aju0")

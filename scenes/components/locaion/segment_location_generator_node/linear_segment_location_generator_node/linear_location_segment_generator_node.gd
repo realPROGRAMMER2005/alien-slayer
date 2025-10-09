@@ -1,5 +1,4 @@
 extends LocationGeneratorNode
-class_name LinearSegmentLocationGeneratorNode
 
 
 @export var start_segment_scenes: Array[PackedScene] = []
@@ -46,3 +45,4 @@ func generate_segment(segment_scene: PackedScene, position: Vector2):
 func clear():
 	for segment: Node2D in _segments:
 		segment.queue_free()
+	_segments.clear()

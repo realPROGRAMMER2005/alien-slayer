@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=4 uid="uid://e31hc5dqq03j"]
+[gd_scene load_steps=4 format=4 uid="uid://e31hc5dqq03j"]
 
 [ext_resource type="PackedScene" uid="uid://1ib0elmuwg8d" path="res://scenes/components/tile_map_layers/GroundTileMapLayer.tscn" id="1_8swkq"]
+[ext_resource type="PackedScene" uid="uid://kunhadpnc02j" path="res://scenes/prefabs/location_regenerator_transitor/LocationRegeneratorTransitor.tscn" id="2_ptdg1"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8swkq"]
 normal = Vector2(-1, 0)
@@ -15,3 +16,8 @@ position = Vector2(960, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("WorldBoundaryShape2D_8swkq")
+
+[node name="LevelRegeneratorTransitor" parent="." instance=ExtResource("2_ptdg1")]
+position = Vector2(848, 0)
+
+[node name="NextSegmentPoint" type="Node2D" parent="."]

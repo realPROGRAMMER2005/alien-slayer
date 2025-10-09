@@ -14,8 +14,8 @@ func _process(delta: float) -> void:
 	if not aiming_manager_node:
 		aiming_manager_node = get_parent().get_node("AimingManagerNode")
 		
-	if not aiming_manager_node:
-		aiming_manager_node = get_parent().get_node("InteractorNode")
+	if not interactor_node:
+		interactor_node = get_parent().get_node("InteractorNode")
 	
 	if not owner_node:
 		owner_node = get_parent()
