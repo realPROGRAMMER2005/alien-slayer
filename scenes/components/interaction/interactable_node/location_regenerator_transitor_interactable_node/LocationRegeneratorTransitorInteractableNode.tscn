@@ -4,3 +4,5 @@
 
 [node name="InteractableNode" type="Node"]
 script = ExtResource("1_wnn3i")
+force_interact = true
+interacting_groups = Array[String](["players"])
