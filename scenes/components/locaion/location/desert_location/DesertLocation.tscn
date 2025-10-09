@@ -11,7 +11,9 @@
 background_mode = 3
 ambient_light_source = 2
 glow_enabled = true
-glow_bloom = 0.1
+glow_intensity = 1.0
+glow_bloom = 0.3
+glow_hdr_scale = 0.0
 
 [node name="DesertLocation" type="Node2D"]
 script = ExtResource("1_rty37")
@@ -26,49 +28,55 @@ default_segment_scenes = Array[PackedScene]([ExtResource("4_ll0b1")])
 end_segment_scenes = Array[PackedScene]([ExtResource("5_4wwla")])
 location_length_segments = 1
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+[node name="ParallaxBackground" type="Node2D" parent="."]
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0, 0)
+[node name="ParallaxLayer" type="Parallax2D" parent="ParallaxBackground"]
+z_index = -200
+z_as_relative = false
+scroll_scale = Vector2(0, 0)
 
 [node name="Polygon2D" type="Polygon2D" parent="ParallaxBackground/ParallaxLayer"]
+self_modulate = Color(1.0030513, 1.0030513, 1.0030513, 1)
 position = Vector2(368, 8)
 color = Color(0.59406775, 0.88959867, 0.9994202, 1)
 polygon = PackedVector2Array(-896, -464, -888, 320, 824, 320, 824, -464)
 
 [node name="Polygon2D2" type="Polygon2D" parent="ParallaxBackground/ParallaxLayer"]
 self_modulate = Color(3.2944162, 3.2944162, 3.2944162, 1)
-position = Vector2(-416, 176)
-polygon = PackedVector2Array(568, -120, 580.8081, -128.53876, 592, -144, 584, -160, 568, -168, 544, -160, 544, -136, 552, -128)
+position = Vector2(0, 184)
+polygon = PackedVector2Array(568, -120, 580.8081, -128.53876, 592, -144, 584, -160, 568, -168, 544, -160, 544, -144, 552, -128)
 
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.2, 0)
-motion_mirroring = Vector2(1008, 0)
+[node name="ParallaxLayer2" type="Parallax2D" parent="ParallaxBackground"]
+z_index = -199
+z_as_relative = false
+scroll_scale = Vector2(0.4, 0)
+scroll_offset = Vector2(0, -168)
+repeat_size = Vector2(1008, 0)
 
 [node name="DunemoonFrontRgbSmoothishAlpha" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
-position = Vector2(72, 242)
+position = Vector2(72, 424)
 texture = ExtResource("7_ll0b1")
 
 [node name="DunemoonFrontRgbSmoothishAlpha2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
-position = Vector2(216, 242)
+position = Vector2(216, 424)
 texture = ExtResource("7_ll0b1")
 
 [node name="DunemoonFrontRgbSmoothishAlpha3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
-position = Vector2(360, 242)
+position = Vector2(360, 424)
 texture = ExtResource("7_ll0b1")
 
 [node name="DunemoonFrontRgbSmoothishAlpha4" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
-position = Vector2(504, 242)
+position = Vector2(504, 424)
 texture = ExtResource("7_ll0b1")
 
 [node name="DunemoonFrontRgbSmoothishAlpha5" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
-position = Vector2(648, 242)
+position = Vector2(648, 424)
 texture = ExtResource("7_ll0b1")
 
 [node name="DunemoonFrontRgbSmoothishAlpha6" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
-position = Vector2(792, 242)
+position = Vector2(792, 424)
 texture = ExtResource("7_ll0b1")
 
 [node name="DunemoonFrontRgbSmoothishAlpha7" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
-position = Vector2(936, 242)
+position = Vector2(936, 424)
 texture = ExtResource("7_ll0b1")
