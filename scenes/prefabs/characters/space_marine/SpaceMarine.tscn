@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://cbljjkyankvy"]
 
-[ext_resource type="PackedScene" uid="uid://bv13tcxd7oefm" path="res://scenes/components/movement/character_body_2D_movement/CharacterBody2DMovementNode.tscn" id="2_3qk4m"]
+[ext_resource type="PackedScene" uid="uid://bv13tcxd7oefm" path="res://scenes/components/movement/movement_node/character_body_2D_movement_node/CharacterBody2DMovementNode.tscn" id="2_3qk4m"]
 [ext_resource type="PackedScene" uid="uid://ll2hsl0vjdm2" path="res://scenes/components/skeletons/space_marine_skeleton/SpaceMarineSkeleton.tscn" id="3_3qk4m"]
 [ext_resource type="PackedScene" uid="uid://d2j6jwlyuekx" path="res://scenes/components/animation/animation_manager_node/AnimationManagerNode.tscn" id="4_ffrr4"]
 [ext_resource type="PackedScene" uid="uid://tgh63xhq6ybg" path="res://scenes/components/animation/aiming_manager_node/AimingManagerNode.tscn" id="5_1am2i"]
@@ -16,6 +16,7 @@ radius = 26.0
 [node name="SpaceMarine" type="CharacterBody2D"]
 
 [node name="CharacterBody2DMovementNode" parent="." instance=ExtResource("2_3qk4m")]
+movement_type = 1
 jump_force = 300.0
 falling_gravity_scale = 2.0
 
