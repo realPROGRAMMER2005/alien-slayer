@@ -1,8 +1,10 @@
-[gd_scene load_steps=85 format=3 uid="uid://ll2hsl0vjdm2"]
+[gd_scene load_steps=86 format=3 uid="uid://ll2hsl0vjdm2"]
 
 [ext_resource type="Script" uid="uid://c6qiawn7iwthm" path="res://scenes/components/skeletons/space_marine_skeleton/space_marine_skeleton.gd" id="1_g8ldd"]
 [ext_resource type="Texture2D" uid="uid://ddpi0ycmlidxj" path="res://assets/images/sprites/characters/space_marine/char-parts.png" id="2_dffis"]
 [ext_resource type="PackedScene" uid="uid://g42qowmh4lyh" path="res://scenes/components/animation/aiming_skeleton_part_node/AimingSkeletonPartNode.tscn" id="3_s4idr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s25ny"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dffis"]
 atlas = ExtResource("2_dffis")
@@ -746,19 +748,23 @@ _data = {
 
 [node name="SpaceMarineSkeleton" type="Node2D"]
 z_as_relative = false
+material = SubResource("ShaderMaterial_s25ny")
 script = ExtResource("1_g8ldd")
 
 [node name="LegsAnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+use_parent_material = true
 position = Vector2(0, 23)
 sprite_frames = SubResource("SpriteFrames_s4idr")
 animation = &"idle"
 offset = Vector2(0, -23)
 
 [node name="BodyAnimatedSprite2D" type="AnimatedSprite2D" parent="LegsAnimatedSprite2D"]
+use_parent_material = true
 position = Vector2(0, -23)
 sprite_frames = SubResource("SpriteFrames_g8ldd")
 animation = &"idle"
-frame_progress = 0.9250254
+frame = 11
+frame_progress = 0.08589063
 
 [node name="Polygon2D" type="Polygon2D" parent="LegsAnimatedSprite2D/BodyAnimatedSprite2D"]
 position = Vector2(0, -2)

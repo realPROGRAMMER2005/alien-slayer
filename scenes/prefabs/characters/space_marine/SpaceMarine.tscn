@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cbljjkyankvy"]
+[gd_scene load_steps=12 format=3 uid="uid://cbljjkyankvy"]
 
 [ext_resource type="PackedScene" uid="uid://bv13tcxd7oefm" path="res://scenes/components/movement/movement_node/character_body_2D_movement_node/CharacterBody2DMovementNode.tscn" id="2_3qk4m"]
 [ext_resource type="PackedScene" uid="uid://ll2hsl0vjdm2" path="res://scenes/components/skeletons/space_marine_skeleton/SpaceMarineSkeleton.tscn" id="3_3qk4m"]
@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://tgh63xhq6ybg" path="res://scenes/components/animation/aiming_manager_node/AimingManagerNode.tscn" id="5_1am2i"]
 [ext_resource type="PackedScene" uid="uid://d3h76y1ws3ovr" path="res://scenes/components/interaction/interactor_node/InteractorNode.tscn" id="5_cbwe4"]
 [ext_resource type="PackedScene" uid="uid://deqref7ww00qe" path="res://scenes/components/interaction/interactor_area_2D/InteractorArea2D.tscn" id="6_lvaip"]
+[ext_resource type="PackedScene" uid="uid://c3p374knf0x8b" path="res://scenes/components/finite_state_machine/finite_state_machine/AI_walking_character_state_machine/AICharacterStateMachine.tscn" id="7_lvaip"]
+[ext_resource type="PackedScene" uid="uid://bfk8lst7bfryk" path="res://scenes/components/finite_state_machine/state/AI_character_wandering_state_node/AICharacterWanderingStateNode.tscn" id="8_ikgw2"]
+[ext_resource type="PackedScene" uid="uid://de8d43ds8xoq0" path="res://scenes/components/finite_state_machine/state/AI_character_idle_state_node/AICharacterIdleStateNode.tscn" id="9_fe5xt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ffrr4"]
 size = Vector2(10, 18)
@@ -14,15 +17,11 @@ size = Vector2(10, 18)
 radius = 26.0
 
 [node name="SpaceMarine" type="CharacterBody2D"]
+collision_layer = 2
 
 [node name="CharacterBody2DMovementNode" parent="." instance=ExtResource("2_3qk4m")]
-movement_type = 1
 jump_force = 300.0
 falling_gravity_scale = 2.0
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position_smoothing_enabled = true
-rotation_smoothing_enabled = true
 
 [node name="SpaceMarineSkeleton" parent="." instance=ExtResource("3_3qk4m")]
 position = Vector2(0, -21)
@@ -44,3 +43,13 @@ shape = SubResource("RectangleShape2D_ffrr4")
 position = Vector2(0, -17)
 shape = SubResource("CircleShape2D_cbwe4")
 metadata/_edit_lock_ = true
+
+[node name="AICharacterStateMachine" parent="." instance=ExtResource("7_lvaip")]
+
+[node name="AICharacterIdleStateNode" parent="AICharacterStateMachine" instance=ExtResource("9_fe5xt")]
+
+[node name="AICharacterWanderingStateNode" parent="AICharacterStateMachine" instance=ExtResource("8_ikgw2")]
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 30.0
+path_postprocessing = 1

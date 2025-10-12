@@ -1,6 +1,14 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://bl3a8jlg8ev7k"]
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://bl3a8jlg8ev7k"]
 
 [ext_resource type="Texture2D" uid="uid://dcn5pgfawtovu" path="res://assets/images/tile_sheet/tiles-onemassivesheet-16colour-alpha.png" id="1_a5bmh"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_a5bmh"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_e4q3u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e4q3u"]
 texture = ExtResource("1_a5bmh")
@@ -4779,10 +4787,13 @@ texture = ExtResource("1_a5bmh")
 59:95/0 = 0
 60:95/0 = 0
 2:13/0 = 0
+2:13/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_e4q3u")
 1:13/0 = 0
+1:13/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_a5bmh")
 0:10/0 = 0
 
 [resource]
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 0
+navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_e4q3u")

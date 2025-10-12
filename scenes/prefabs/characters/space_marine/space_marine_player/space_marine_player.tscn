@@ -5,7 +5,10 @@
 
 [node name="SpaceMarine" groups=["players"] instance=ExtResource("1_nptjf")]
 
-[node name="CharacterBody2DMovementNode" parent="." index="0"]
-movement_type = 0
-
 [node name="PlayerContollerNode" parent="." index="6" instance=ExtResource("2_dh2yh")]
+
+[node name="Camera2D" type="Camera2D" parent="." index="8"]
+limit_enabled = false
+
+[node name="AICharacterStateMachine" parent="." index="9"]
+is_enabled = false

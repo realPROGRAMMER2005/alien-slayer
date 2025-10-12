@@ -9,10 +9,15 @@ var has_started: bool = false
 
 func start():
 	has_started = true
+	timer = time
+
+	
 	
 func process(delta: float):
 	if has_started:
 		timer -= delta
+		
+		
 		if timer <= 0:
 			is_out = true
 

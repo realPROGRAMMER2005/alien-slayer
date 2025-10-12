@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cf30fmndrwsqy"]
+
+[ext_resource type="TileSet" uid="uid://bl3a8jlg8ev7k" path="res://resources/tile_sets/main_tile_set.tres" id="1_5lubu"]
+
+[node name="AINavigationTileMapLayer" type="TileMapLayer"]
+z_index = 10
+z_as_relative = false
+tile_set = ExtResource("1_5lubu")

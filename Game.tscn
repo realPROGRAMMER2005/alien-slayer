@@ -1,10 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://c3q077eucto86"]
+[gd_scene load_steps=4 format=3 uid="uid://c3q077eucto86"]
 
 [ext_resource type="PackedScene" uid="uid://f83vad8lq3st" path="res://scenes/prefabs/characters/space_marine/space_marine_player/space_marine_player.tscn" id="1_wbfu4"]
 [ext_resource type="PackedScene" uid="uid://b3da5gplb20wx" path="res://scenes/components/locaion/location/desert_location/DesertLocation.tscn" id="2_xkndl"]
+[ext_resource type="PackedScene" uid="uid://cbljjkyankvy" path="res://scenes/prefabs/characters/space_marine/SpaceMarine.tscn" id="3_u44n3"]
 
 [node name="Game" type="Node2D"]
 
 [node name="SpaceMarine" parent="." instance=ExtResource("1_wbfu4")]
+position = Vector2(3998, -38)
+collision_mask = 1
 
 [node name="DesertLocation" parent="." instance=ExtResource("2_xkndl")]
+
+[node name="SpaceMarine2" parent="." instance=ExtResource("3_u44n3")]
+position = Vector2(4399, 0)

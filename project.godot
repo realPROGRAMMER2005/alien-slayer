@@ -21,6 +21,7 @@ MovementSystem="*res://global_scripts/movement/movement_system.gd"
 NodeFinder="*res://global_scripts/node_finder/node_finder.gd"
 SignalUtilities="*res://global_scripts/signal_utilities/signal_utilities.gd"
 SpawnUtilities="*res://global_scripts/spawn_utilities/spawn_utilities.gd"
+GeometryUtilities="*res://global_scripts/geometry_utilities.gd"
 
 [display]
 
@@ -30,7 +31,6 @@ window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"
 window/stretch/aspect="keep_height"
-window/vsync/vsync_mode=0
 
 [global_group]
 

@@ -1,12 +1,12 @@
 extends Node
-class_name FiniteStateMachineState
+class_name StateNode
 
 
-@export var finite_state_machine: FiniteStateMachine
+@export var finite_state_machine_node: FiniteStateMachineNode
 
 func _process(delta: float) -> void:
-	if not finite_state_machine:
-		finite_state_machine = get_parent()
+	if not finite_state_machine_node:
+		finite_state_machine_node = get_parent()
 
 # Вход в состояние
 func _enter_state():

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfk8lst7bfryk"]
+
+[ext_resource type="Script" uid="uid://b1dvtrwj6wndw" path="res://scenes/components/finite_state_machine/state/AI_character_wandering_state_node/AI_character_wandering_state_node.gd" id="1_nldlc"]
+
+[node name="AICharacterWanderingStateNode" type="Node"]
+script = ExtResource("1_nldlc")
+metadata/_custom_type_script = "uid://btkv3wq5rgch4"

@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://de8d43ds8xoq0"]
-
-[ext_resource type="Script" uid="uid://jm31gj7ensaa" path="res://scenes/components/finite_state_machine/finite_state_machine_state/AI_walking_character_idle_state/AI_walking_character_idle_state.gd" id="1_svdqm"]
-
-[node name="AIWalkingCharacterIdleState" type="Node"]
-script = ExtResource("1_svdqm")
-min_time_seconds = null
-max_time_seconds = null
-metadata/_custom_type_script = "uid://btkv3wq5rgch4"
