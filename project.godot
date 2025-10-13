@@ -21,7 +21,8 @@ MovementSystem="*res://global_scripts/movement/movement_system.gd"
 NodeFinder="*res://global_scripts/node_finder/node_finder.gd"
 SignalUtilities="*res://global_scripts/signal_utilities/signal_utilities.gd"
 SpawnUtilities="*res://global_scripts/spawn_utilities/spawn_utilities.gd"
-GeometryUtilities="*res://global_scripts/geometry_utilities.gd"
+GeometryUtilities="*res://global_scripts/geometry_utilities/geometry_utilities.gd"
+ScreenSpaceFXController="*res://global_scripts/screen_space_FX_controller/screen_space_FX_controller.gd"
 
 [display]
 

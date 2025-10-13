@@ -8,7 +8,9 @@ extends LocationGeneratorNode
 @export var location_length_segments: int = 15
 @export var location: Location
 @export var trigger_generate: bool = true
+@export var trigger_clear: bool = false
 var _segments: Array[Node2D] = []
+
 
 func generate():
 	var segment_scene: PackedScene
@@ -34,12 +36,17 @@ func _process(delta: float) -> void:
 	if location and trigger_generate:
 		trigger_generate = false
 		generate()
+	
+	if location and trigger_clear:
+		trigger_clear = false
+		clear()
 
 
 func generate_segment(segment_scene: PackedScene, position: Vector2):
 	var segment_instance = SpawnUtilities.spawn_packed_scene_node_2D(segment_scene, position, location)
 	_segments.append(segment_instance)
 	return segment_instance
+
 	
 
 func clear():

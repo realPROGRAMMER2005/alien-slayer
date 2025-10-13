@@ -39,3 +39,5 @@ func _process_state(delta: float):
 		
 	if timer_resource.is_out and finite_state_machine_node:
 		finite_state_machine_node.change_state(wandering_state_node)
+		
+		

@@ -21,6 +21,9 @@ func _process(delta: float) -> void:
 		owner_node = get_parent()
 
 func _physics_process(_delta: float) -> void:
+	if not enabled:
+		return
+		
 	if movement_node:
 
 		var move: Vector2 = Vector2.ZERO

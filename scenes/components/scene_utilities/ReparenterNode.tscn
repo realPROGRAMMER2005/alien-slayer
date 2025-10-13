@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkhumgsywl11k"]
+
+[ext_resource type="Script" uid="uid://bn1blv81wswv1" path="res://scenes/components/scene_utilities/reparenter_node.gd" id="1_crkr2"]
+
+[node name="ReparenterNode" type="Node"]
+script = ExtResource("1_crkr2")

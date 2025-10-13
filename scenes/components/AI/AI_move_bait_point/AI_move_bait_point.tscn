@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://clsp7w4uvvy8v"]
+
+[ext_resource type="Script" uid="uid://cw7hshamvlhcf" path="res://scenes/components/AI/AI_move_bait_point/AI_move_bait_point.gd" id="1_ak203"]
+
+[node name="AIMoveBaitPoint" type="Node2D"]
+script = ExtResource("1_ak203")
+groups = null
+trigger_bait = null
+animation_name = null

@@ -74,9 +74,5 @@ color = Color(1, 1, 1, 0)
 libraries = {
 &"": SubResource("AnimationLibrary_t88pq")
 }
-metadata/animation_manager_tag = "screen"
 
 [node name="AnimationManagerNode" parent="." instance=ExtResource("5_t88pq")]
-animation_manager_tag = "screen"
-
-[node name="LocationTransitorNode" type="Node" parent="."]

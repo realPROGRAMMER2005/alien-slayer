@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwwxuuwo7bda8"]
+
+[ext_resource type="PackedScene" uid="uid://duai0l0lrc68e" path="res://scenes/components/interaction/interactable_area_2D/InteractableArea2D.tscn" id="1_ggcml"]
+[ext_resource type="PackedScene" uid="uid://c83n8i4c7upst" path="res://scenes/components/interaction/interactable_node/location_transition_regenerator_interactable_node/LocationTransitionRegeneratorInteractableNode.tscn" id="2_j46ob"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ggcml"]
+size = Vector2(100, 89)
+
+[node name="LocationTransitionRegenerator" type="Node2D"]
+
+[node name="InteractableArea2D" parent="." instance=ExtResource("1_ggcml")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableArea2D"]
+position = Vector2(0, -44.5)
+shape = SubResource("RectangleShape2D_ggcml")
+
+[node name="InteractableNode" parent="." instance=ExtResource("2_j46ob")]

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c83n8i4c7upst"]
+
+[ext_resource type="Script" uid="uid://bgke7mamx61g6" path="res://scenes/components/interaction/interactable_node/location_transition_regenerator_interactable_node/location_transition_regenerator_interactable_node.gd" id="1_icqxm"]
+
+[node name="InteractableNode" type="Node"]
+script = ExtResource("1_icqxm")
+force_interact = true
+interacting_groups = Array[String](["players"])
+metadata/_custom_type_script = "uid://c0nphy52kbg7w"

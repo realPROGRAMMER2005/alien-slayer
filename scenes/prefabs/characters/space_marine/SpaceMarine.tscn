@@ -28,6 +28,7 @@ falling_gravity_scale = 2.0
 position = Vector2(0, -21)
 
 [node name="AnimationManagerNode" parent="." instance=ExtResource("4_ffrr4")]
+animation_manager_tag = "character"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -54,5 +55,5 @@ metadata/_edit_lock_ = true
 [node name="AICharacterWanderingStateNode" parent="AICharacterStateMachine" instance=ExtResource("8_ikgw2")]
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-path_desired_distance = 30.0
+target_desired_distance = 50.0
 path_postprocessing = 1

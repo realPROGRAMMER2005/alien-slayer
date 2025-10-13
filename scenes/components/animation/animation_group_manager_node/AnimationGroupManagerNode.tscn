@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://8owqk4m5ivmr"]
+
+[ext_resource type="Script" uid="uid://b78mqsfbcti6b" path="res://scenes/components/animation/animation_group_manager_node/animation_group_manager_node.gd" id="1_sv4h6"]
+
+[node name="AnimationGroupManagerNode" type="Node"]
+script = ExtResource("1_sv4h6")

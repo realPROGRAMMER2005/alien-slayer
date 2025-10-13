@@ -783,14 +783,17 @@ owner_node = NodePath("..")
 libraries = {
 &"": SubResource("AnimationLibrary_s4idr")
 }
+metadata/animation_manager_tag = "character"
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_inlp5")
 }
+metadata/animation_manager_tag = "character"
 
 [node name="AnimationPlayer3" type="AnimationPlayer" parent="."]
 root_node = NodePath("../AnimationPlayer2")
 libraries = {
 &"": SubResource("AnimationLibrary_txr6m")
 }
+metadata/animation_manager_tag = "character"
