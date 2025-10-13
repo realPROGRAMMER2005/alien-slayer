@@ -2,8 +2,8 @@ extends StateNode
 
 var timer_resource: TimerResource
 var change_direction_timer_resource: TimerResource
-@export var change_direction_max_time_seconds: float = 2
-@export var change_direction_min_time_seconds: float = 1
+@export var change_direction_max_time_seconds: float = 6
+@export var change_direction_min_time_seconds: float = 4
 @export var max_time_seconds: float = 20.0
 @export var min_time_seconds: float = 12.0
 @export var idle_state_node: StateNode
@@ -40,7 +40,21 @@ func _exit_state():
 	timer_resource = null
 
 func wander():
+
 	if finite_state_machine_node:
-		finite_state_machine_node.movement_node.move_to_point(GeometryUtilities.get_random_position_around(finite_state_machine_node.owner_node.global_position, radius))
+		
+		var point = GeometryUtilities.get_random_position_around(finite_state_machine_node.owner_node.global_position, radius)
+		var aiming_manager_node: AimingManagerNode = finite_state_machine_node.aiming_manager_node
+		finite_state_machine_node.movement_node.move_to_point(point)
 		change_direction_timer_resource.reset()
 		change_direction_timer_resource.start()
+		
+		if aiming_manager_node:
+			aiming_manager_node.current_aiming_mode = aiming_manager_node.AimingModes.ACCORDING_MOVEMENT_VELOCITY_ALL_DIRECTIONS
+			aiming_manager_node.aim_to_point = point
+			aiming_manager_node.trigger_aiming = true
+		
+		
+		
+		
+		

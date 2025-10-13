@@ -9,23 +9,24 @@ class_name CharacterBody2DMovementNode
 @export var rising_gravity_scale: float = 1.0
 
 var _move: Vector2 = Vector2.ZERO
-@export var character_body_2D: CharacterBody2D
 @export var navigation_agent: NavigationAgent2D
 @export var target_position: Vector2
 @export var is_moving_to_point: bool = false
 
 
 func _process(delta: float) -> void:
-
 	
-	if not character_body_2D:
-		character_body_2D = get_parent() as CharacterBody2D
+	if not owner_node:
+		owner_node = get_parent() as CharacterBody2D
 	
 	if not navigation_agent:
 		navigation_agent = get_parent().get_node("NavigationAgent2D")
+	
+	if owner_node:
+		owner_node_velocity = owner_node.velocity
 
 func _physics_process(delta: float) -> void:
-	if not character_body_2D:
+	if not owner_node:
 		return
 	
 	if is_moving_to_point:
@@ -37,20 +38,20 @@ func _physics_process(delta: float) -> void:
 		MovementSystem.MovementTypes.FLYING:
 			_apply_flying_movement(delta)
 	
-	character_body_2D.move_and_slide()
+	owner_node.move_and_slide()
 
 func set_move(move: Vector2) -> void:
 	_move = move
 
 func jump() -> void:
-	if current_movement_type == MovementSystem.MovementTypes.WALKING and character_body_2D.is_on_floor():
-		character_body_2D.velocity.y = -jump_force
+	if current_movement_type == MovementSystem.MovementTypes.WALKING and owner_node.is_on_floor():
+		owner_node.velocity.y = -jump_force
 
 func _apply_walking_movement(delta: float) -> void:
 	var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
-	var velocity: Vector2 = character_body_2D.velocity
+	var velocity: Vector2 = owner_node.velocity
 	
-	# Применение гравитации в зависимости от вертикальной скорости
+	# Применение гравитации в зависимости о т вертикальной скорости
 	if velocity.y > 0:
 		velocity.y += gravity * falling_gravity_scale * delta
 	else:
@@ -62,10 +63,10 @@ func _apply_walking_movement(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, deceleration * delta)
 	
-	character_body_2D.velocity = velocity
+	owner_node.velocity = velocity
 
 func _apply_flying_movement(delta: float) -> void:
-	var velocity: Vector2 = character_body_2D.velocity
+	var velocity: Vector2 = owner_node.velocity
 	
 	# Горизонтальное движение
 	if _move.x != 0:
@@ -79,12 +80,11 @@ func _apply_flying_movement(delta: float) -> void:
 	else:
 		velocity.y = move_toward(velocity.y, 0, deceleration * delta)
 	
-	character_body_2D.velocity = velocity
+	owner_node.velocity = velocity
 
 func move_to_point(target_position: Vector2) -> void:
 	
 	
-	# Устанавливаем целевую позицию для навигационного агента
 	target_position = target_position
 	navigation_agent.set_target_position(target_position)
 	is_moving_to_point = true
@@ -97,12 +97,12 @@ func _follow_navigation_path(delta: float) -> void:
 	
 	# Получаем следующую точку пути
 	var next_path_position: Vector2 = navigation_agent.get_next_path_position()
-	var direction: Vector2 = (next_path_position - character_body_2D.global_position).normalized()
+	var direction: Vector2 = (next_path_position - owner_node.global_position).normalized()
 	
 	# Устанавливаем направление движения
 	_move = direction
 	
 	# Проверяем, достигли ли мы цели
-	if character_body_2D.global_position.distance_to(target_position) < navigation_agent.target_desired_distance:
+	if owner_node.global_position.distance_to(target_position) < navigation_agent.target_desired_distance:
 		is_moving_to_point = false
 		_move = Vector2.ZERO

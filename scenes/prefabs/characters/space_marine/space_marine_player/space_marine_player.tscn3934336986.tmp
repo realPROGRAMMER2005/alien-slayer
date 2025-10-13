@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://f83vad8lq3st"]
+
+[ext_resource type="PackedScene" uid="uid://cbljjkyankvy" path="res://scenes/prefabs/characters/space_marine/SpaceMarine.tscn" id="1_nptjf"]
+[ext_resource type="PackedScene" uid="uid://d0q2hxx5vs78r" path="res://scenes/components/controls/controller_node/player_controller_node/PlayerContollerNode.tscn" id="2_dh2yh"]
+
+[node name="SpaceMarine" groups=["players"] instance=ExtResource("1_nptjf")]
+
+[node name="AimingManagerNode" parent="." index="4"]
+current_aiming_mode = 0
+
+[node name="PlayerContollerNode" parent="." index="6" instance=ExtResource("2_dh2yh")]
+
+[node name="Camera2D" type="Camera2D" parent="." index="8"]
+limit_enabled = false
+
+[node name="AICharacterStateMachine" parent="." index="9"]
+is_enabled = false

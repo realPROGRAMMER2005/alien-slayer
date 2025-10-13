@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cj6fsxxdjtshi"]
+
+[ext_resource type="Script" uid="uid://dy72c62owmt4o" path="res://scenes/components/collision/tile_intersection_area_2D/tile_intersection_area_2D.gd" id="1_nkmwn"]
+
+[node name="TileIntersectionArea2D" type="Area2D"]
+script = ExtResource("1_nkmwn")

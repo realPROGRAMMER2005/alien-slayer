@@ -8,7 +8,7 @@ extends Node2D
 
 
 
-signal animation_signal(animation_name: String)
+signal animation_signal(animation_name: String, speed_scale: float)
 
 
 
@@ -23,7 +23,8 @@ func _process(delta: float) -> void:
 	if character_body_2D.is_on_floor():
 		
 		if character_body_2D.velocity.x != 0:
-			animation_signal.emit("move")
+			if abs(character_body_2D.velocity.x) >= 75:
+				animation_signal.emit("move", abs(character_body_2D.velocity.x / 300))
 			
 			
 			if character_body_2D.velocity.x < 0:
@@ -49,7 +50,7 @@ func _process(delta: float) -> void:
 
 		
 	
-	body_animated_sprite_2D.frame = _get_frame_index_from_angle(weapon_skeleton_aiming_part_node.aiming_anlge_degrees)
+	body_animated_sprite_2D.frame = _get_frame_index_from_angle(weapon_skeleton_aiming_part_node.aiming_angle_degrees)
 	
 
 func _get_frame_index_from_angle(angle: float) -> int:

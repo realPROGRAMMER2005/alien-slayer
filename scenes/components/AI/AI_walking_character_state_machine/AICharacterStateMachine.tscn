@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3p374knf0x8b"]
+
+[ext_resource type="Script" uid="uid://c4lq26abc3nsp" path="res://scenes/components/AI/AI_walking_character_state_machine/AI_character_state_machine.gd" id="1_by08h"]
+
+[node name="AICharacterStateMachine" type="Node"]
+script = ExtResource("1_by08h")
+metadata/_custom_type_script = "uid://btkv3wq5rgch4"

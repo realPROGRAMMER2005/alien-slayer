@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://de8d43ds8xoq0"]
 
-[ext_resource type="Script" uid="uid://jm31gj7ensaa" path="res://scenes/components/finite_state_machine/state/AI_character_idle_state_node/AI_character_idle_state_node.gd" id="1_510p4"]
+[ext_resource type="Script" uid="uid://jm31gj7ensaa" path="res://scenes/components/AI/AI_character_idle_state_node/AI_character_idle_state_node.gd" id="1_510p4"]
 
 [node name="AICharacterIdleStateNode" type="Node"]
 script = ExtResource("1_510p4")
