@@ -39,7 +39,17 @@ func _on_animation_requestor_animation_requested(animation_name: String, speed_s
 	play_animation(animation_name, speed_scale)
 
 func play_animation(animation_name: String, speed_scale: float = 1):
-	for animation_player: AnimationPlayer in animation_players:
+	# Фильтруем freed-объекты перед циклом
+	var valid_players: Array[Node] = []
+	for player in animation_players:
+		if is_instance_valid(player):
+			valid_players.append(player)
+	
+	# Если массив изменился, обновляем оригинал (опционально, для предотвращения накопления)
+	if valid_players.size() != animation_players.size():
+		animation_players = valid_players
+	
+	for animation_player: AnimationPlayer in valid_players:
 		if not animation_player.has_animation(animation_name):
 			continue
 		if animation_player.current_animation == animation_name and animation_player.is_playing():

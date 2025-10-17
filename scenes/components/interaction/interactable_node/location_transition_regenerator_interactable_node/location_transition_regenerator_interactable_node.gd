@@ -16,6 +16,9 @@ func interact(interactor_node: InteractorNode):
 	super.interact(interactor_node)
 	
 	
+	for player in get_tree().get_nodes_in_group("players"):
+		LocationTransitorManager.save_node(player, "players")
+		
 	animation_signal.emit("location_regenerate")
 	
 	

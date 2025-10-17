@@ -7,7 +7,7 @@ var change_direction_timer_resource: TimerResource
 @export var max_time_seconds: float = 20.0
 @export var min_time_seconds: float = 12.0
 @export var idle_state_node: StateNode
-@export var radius: float = 200
+@export var radius: float = 3000
 
 
 func _process(delta: float) -> void:

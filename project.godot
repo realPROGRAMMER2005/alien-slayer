@@ -23,6 +23,9 @@ SignalUtilities="*res://global_scripts/signal_utilities/signal_utilities.gd"
 SpawnUtilities="*res://global_scripts/spawn_utilities/spawn_utilities.gd"
 GeometryUtilities="*res://global_scripts/geometry_utilities/geometry_utilities.gd"
 ScreenSpaceFXController="*res://global_scripts/screen_space_FX_controller/screen_space_FX_controller.gd"
+LocationTransitorManager="*res://global_scripts/location_transitor_manager/location_transitor_manager.gd"
+LocationManager="*res://global_scripts/location_manager/location_manager.gd"
+SaveLoadSystem="*res://global_scripts/save_load_system/save_load_system.gd"
 
 [display]
 

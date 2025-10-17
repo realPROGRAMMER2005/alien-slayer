@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://lysp8405q4qr"]
+
+[ext_resource type="Script" uid="uid://dj405lkr3kwj7" path="res://scenes/components/spawn/packed_scene_spawner_node/packed_scene_spawner_node.gd" id="1_x2ocm"]
+
+[node name="PackedSceneSpawnerNode" type="Node"]
+script = ExtResource("1_x2ocm")

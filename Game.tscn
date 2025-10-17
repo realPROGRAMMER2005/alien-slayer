@@ -51,13 +51,13 @@ _data = {
 
 [node name="Game" type="Node2D"]
 
-[node name="SpaceMarine" parent="." instance=ExtResource("1_wbfu4")]
-position = Vector2(1857, -87)
-
 [node name="DesertLocation" parent="." instance=ExtResource("2_xkndl")]
 
-[node name="SpaceMarine2" parent="." instance=ExtResource("3_u44n3")]
+[node name="SpaceMarine2" parent="DesertLocation" instance=ExtResource("3_u44n3")]
 position = Vector2(2258, -49)
+
+[node name="SpaceMarine" parent="DesertLocation" instance=ExtResource("1_wbfu4")]
+position = Vector2(1857, -87)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

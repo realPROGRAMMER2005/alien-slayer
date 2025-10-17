@@ -43,7 +43,7 @@ func _process(delta: float) -> void:
 
 
 func generate_segment(segment_scene: PackedScene, position: Vector2):
-	var segment_instance = SpawnUtilities.spawn_packed_scene_node_2D(segment_scene, position, location)
+	var segment_instance = SpawnUtilities.spawn_packed_scene(segment_scene, location, {"global_position": position})
 	_segments.append(segment_instance)
 	return segment_instance
 
